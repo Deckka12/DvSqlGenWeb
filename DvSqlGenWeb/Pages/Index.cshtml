@@ -1,0 +1,300 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "SQL Bot";
+}
+
+<style>
+    .chat-wrap {
+        max-width: 920px;
+        margin: 30px auto;
+        padding: 16px
+    }
+
+    .chat-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px
+    }
+
+    .chat-board {
+        border: 1px solid #e3e3e3;
+        border-radius: 10px;
+        padding: 12px;
+        height: 60vh;
+        overflow: auto;
+        background: #fafafa
+    }
+
+    .msg {
+        display: flex;
+        gap: 10px;
+        margin: 12px 0
+    }
+
+        .msg.user {
+            justify-content: flex-end
+        }
+
+    .bubble {
+        max-width: 78%;
+        padding: 10px 12px;
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(0,0,0,.06)
+    }
+
+    .user .bubble {
+        background: #2b6cb0;
+        color: #fff;
+        border-bottom-right-radius: 4px
+    }
+
+    .bot .bubble {
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        border-bottom-left-radius: 4px
+    }
+
+    .msg small {
+        opacity: .7;
+        display: block;
+        margin-top: 6px
+    }
+
+    .input-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px
+    }
+
+        .input-row textarea {
+            flex: 1;
+            resize: vertical;
+            min-height: 52px;
+            max-height: 40vh;
+            padding: 10px;
+            border: 1px solid #d9d9d9;
+            border-radius: 10px
+        }
+
+    .actions {
+        display: flex;
+        gap: 10px
+    }
+
+    .btn {
+        min-width: 140px;
+        border: none;
+        border-radius: 10px;
+        background: #2b6cb0;
+        color: #fff;
+        font-weight: 600;
+        padding: 10px 14px;
+        cursor: pointer
+    }
+
+        .btn[disabled] {
+            opacity: .6;
+            cursor: not-allowed
+        }
+
+    pre {
+        margin: 0;
+        font-size: 14px;
+        background: #0b1020;
+        color: #e8f0ff;
+        padding: 10px;
+        border-radius: 8px;
+        overflow: auto
+    }
+
+    code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
+    }
+
+    /* индикатор загрузки */
+    .loading {
+        display: flex;
+        align-items: center;
+        gap: 10px
+    }
+
+    .spinner {
+        width: 16px;
+        height: 16px;
+        border: 3px solid #e5e7eb;
+        border-top-color: #2b6cb0;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite
+    }
+   
+
+    .muted {
+        color: #6b7280;
+        font-size: 12px;
+        margin-top: 6px
+    }
+</style>
+
+<div class="chat-wrap">
+    <div class="chat-title">SQL Bot для DocsVision</div>
+
+    <div id="board" class="chat-board">
+        <div class="msg bot">
+            <div class="bubble">
+                Привет! Опиши, какой SQL нужен. Я сгенерирую запрос по dv_schema.<br />
+                Например: <i>“Выбери последние 20 документов CardDocument по состоянию Draft”</i>.
+            </div>
+        </div>
+    </div>
+
+    <div class="input-row">
+        <textarea id="question" placeholder="Опиши, какой запрос нужен…"></textarea>
+        <div class="actions">
+            <button id="sendBtn" class="btn" onclick="send()">Отправить</button>
+            <button id="cancelBtn" class="btn" style="background:#6b7280" disabled onclick="cancelRequest()">Отмена</button>
+        </div>
+        <label>
+            <input  type="checkbox" name="CheckBB" id="agree" value="yes">
+            Обновить базу?
+        </label>
+    </div>
+    <div id="status" class="muted"></div>
+</div>
+
+<script>
+    let controller = null;          // AbortController для отмены
+    let tickTimer = null;           // таймер секундомера
+    let startTime = 0;              // время старта
+    const board = document.getElementById('board');
+    const question = document.getElementById('question');
+    const sendBtn = document.getElementById('sendBtn');
+    const checkBB = document.getElementById('agree');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const statusEl = document.getElementById('status');
+
+    function addMsg(role, html){
+      const wrap = document.createElement('div');
+      wrap.className = 'msg ' + (role === 'user' ? 'user' : 'bot');
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      b.innerHTML = html;
+      wrap.appendChild(b);
+      board.appendChild(wrap);
+      board.scrollTop = board.scrollHeight;
+      return b; // возвращаем сам пузырь (чтобы потом заменить содержимое)
+    }
+
+    function setBusy(isBusy){
+      sendBtn.disabled = isBusy;
+      cancelBtn.disabled = !isBusy;
+    }
+
+    function startStatus(text){
+      startTime = Date.now();
+      statusEl.textContent = text + ' (0.0 c)';
+      if (tickTimer) clearInterval(tickTimer);
+      tickTimer = setInterval(()=>{
+        const sec = (Date.now() - startTime)/1000;
+        statusEl.textContent = text + ` (${sec.toFixed(1)} c)`;
+      }, 100);
+    }
+
+    function stopStatus(){
+      if (tickTimer) clearInterval(tickTimer);
+      tickTimer = null;
+      statusEl.textContent = '';
+    }
+
+    function cancelRequest(){
+      if (controller){
+        controller.abort();
+      }
+    }
+
+    // отображение «генерирую…» с точками
+    function makeLoadingBubble(){
+      const bubble = addMsg('bot', `
+        <div class="loading">
+          <div class="spinner"></div>
+          <div><b>Генерирую SQL…</b> <span id="dots">.</span></div>
+        </div>
+        <div class="muted">Это может занять 5–30 секунд — идёт поиск по схеме и вызов LLM.</div>
+      `);
+      let dots = 1;
+      const dotSpan = bubble.querySelector('#dots');
+      const iv = setInterval(()=>{
+        dots = (dots % 3) + 1;
+        dotSpan.textContent = '.'.repeat(dots);
+      }, 400);
+      // вернём функцию, которая остановит анимацию и позволит заменить контент
+      return {
+        bubble,
+        stop: ()=> clearInterval(iv),
+        setHtml: (html)=> { bubble.innerHTML = html; }
+      };
+    }
+
+    async function send(){
+      const text = (question.value || '').trim();
+      if(!text) return;
+
+      addMsg('user', escapeHtml(text));
+      question.value = '';
+      question.focus();
+
+      setBusy(true);
+      controller = new AbortController();
+      const loader = makeLoadingBubble();
+      startStatus('Запрос выполняется');
+
+      try{
+        const res = await fetch('/api/sql', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ question: text, update: checkBB.checked  }),
+          signal: controller.signal
+        });
+
+        loader.stop();
+
+        if(!res.ok){
+          const errText = await res.text();
+          loader.setHtml('Ошибка сервера:<br><pre><code>' + escapeHtml(errText) + '</code></pre>');
+          return;
+        }
+
+        const data = await res.json();
+        const sql = (data && data.sql) ? String(data.sql) : '';
+
+        if(!sql){
+          loader.setHtml('<div>Пустой ответ. Попробуй переформулировать вопрос или уточнить раздел/поля.</div>');
+        }else{
+          loader.setHtml('<pre><code>' + escapeHtml(sql) + '</code></pre>');
+        }
+      }catch(e){
+        loader.stop();
+        const msg = (e && e.name === 'AbortError') ? 'Запрос отменён.' : ('Сеть/клиент: ' + String(e));
+        addMsg('bot', '<pre><code>' + escapeHtml(msg) + '</code></pre>');
+      }finally{
+        setBusy(false);
+        stopStatus();
+        controller = null;
+      }
+    }
+
+    // отправка на Enter (без Shift)
+    question.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' && !e.shiftKey){
+        e.preventDefault();
+        send();
+      }
+    });
+
+    // простая экранизация
+    function escapeHtml(s){
+      return (s||'').replace(/[&<>"']/g, ch => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[ch]));
+    }
+</script>

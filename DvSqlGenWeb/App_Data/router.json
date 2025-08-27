@@ -1,0 +1,9 @@
+﻿{
+    "CardDocument.MainInfo": "документа основная информация, основная информация, общие сведения",
+    "CardDocument.Files": [ "файлы документа", "вложения" ],
+    "RefStaff.Employees": { "phrases": [ "справочник сотрудников", "работник", "сотрудник" ] },
+    "RefBaseUniversal.Items": { "phrases": [ "справочник", "справочника" ] },
+    "CardDocument.DocInfo": [ "Branch", "BranchCode", "информация о документе", "бранч" ],
+    "CardTaskList.Tasks": [ "Список заданий", "списка ссылок" ],
+    "CardTask.Task":  ["Tasks","Задание","задания"]
+}

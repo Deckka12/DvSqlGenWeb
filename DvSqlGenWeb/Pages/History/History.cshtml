@@ -1,0 +1,510 @@
+﻿@* import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Loader2, Search, Filter, Download, ChevronDown, ChevronRight, Copy, Check } from "lucide-react";
+
+// =============================
+// Types
+// =============================
+export type LlmRequestStatus = "success" | "error" | "pending";
+
+export interface LlmRequestItem {
+  id: string;
+  createdAt: string; // ISO timestamp
+  model: string;
+  prompt: string;
+  response?: string;
+  status: LlmRequestStatus;
+  inputTokens?: number;
+  outputTokens?: number;
+  totalTokens?: number;
+  latencyMs?: number;
+  costUsd?: number;
+  meta?: Record<string, any> | null;
+}
+
+export interface PagedResult<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  models?: string[]; // optional: server can provide known models for filter
+}
+
+// =============================
+// Utilities
+// =============================
+function clsx(...parts: Array<string | false | null | undefined>) {
+  return parts.filter(Boolean).join(" ");
+}
+
+function formatDate(iso: string) {
+  const d = new Date(iso);
+  return d.toLocaleString();
+}
+
+function formatMs(ms?: number) {
+  if (ms == null) return "—";
+  if (ms < 1000) return `${ms} ms`;
+  const s = ms / 1000;
+  if (s < 60) return `${s.toFixed(2)} s`;
+  const m = Math.floor(s / 60);
+  const rem = (s % 60).toFixed(0);
+  return `${m}m ${rem}s`;
+}
+
+function formatUsd(n?: number) {
+  if (n == null) return "—";
+  return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(n);
+}
+
+function truncate(text?: string, max = 96) {
+  if (!text) return "";
+  return text.length > max ? text.slice(0, max) + "…" : text;
+}
+
+function toCsv(rows: LlmRequestItem[]) {
+  const header = [
+    "id",
+    "createdAt",
+    "model",
+    "status",
+    "inputTokens",
+    "outputTokens",
+    "totalTokens",
+    "latencyMs",
+    "costUsd",
+    "prompt",
+    "response",
+  ];
+  const esc = (v: any) => {
+    if (v == null) return "";
+    const s = String(v).replaceAll('"', '""');
+    if (/[",\n]/.test(s)) return '"' + s + '"';
+    return s;
+  };
+  const lines = [header.join(","), ...rows.map((r) => header.map((h) => esc((r as any)[h])).join(","))];
+  return lines.join("\n");
+}
+
+async function copyToClipboard(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// =============================
+// API client (adjust base url if needed)
+// =============================
+const API_BASE = ""; // Same origin by default
+
+async function fetchHistory(params: Record<string, string | number | undefined>): Promise<PagedResult<LlmRequestItem>> {
+  const qs = new URLSearchParams();
+  Object.entries(params).forEach(([k, v]) => {
+    if (v !== undefined && v !== "") qs.set(k, String(v));
+  });
+  const res = await fetch(`${API_BASE}/api/requests/history?${qs.toString()}`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+// =============================
+// Main Component
+// =============================
+export default function HistoryPage() {
+  const [items, setItems] = useState<LlmRequestItem[]>([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(20);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [model, setModel] = useState<string | undefined>(undefined);
+  const [status, setStatus] = useState<LlmRequestStatus | "" | undefined>("");
+  const [dateFrom, setDateFrom] = useState<string>(""); // ISO YYYY-MM-DD
+  const [dateTo, setDateTo] = useState<string>("");
+  const [sort, setSort] = useState<string>("-createdAt"); // -desc, +asc
+  const [knownModels, setKnownModels] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  const abortRef = useRef<AbortController | null>(null);
+
+  const queryKey = useMemo(
+    () => ({ page, pageSize, searchTerm, model, status, dateFrom, dateTo, sort }),
+    [page, pageSize, searchTerm, model, status, dateFrom, dateTo, sort]
+  );
+
+  useEffect(() => {
+    (async () => {
+      abortRef.current?.abort();
+      const ctrl = new AbortController();
+      abortRef.current = ctrl;
+      setLoading(true);
+      setError(null);
+      try {
+        const data = await fetchHistory({
+          page,
+          pageSize,
+          q: searchTerm,
+          model,
+          status: status || undefined,
+          dateFrom: dateFrom ? new Date(dateFrom).toISOString() : undefined,
+          dateTo: dateTo ? new Date(dateTo).toISOString() : undefined,
+          sort,
+        });
+        if (ctrl.signal.aborted) return;
+        setItems(data.items);
+        setTotal(data.total);
+        setKnownModels(data.models ?? []);
+      } catch (e: any) {
+        if (e?.name === "AbortError") return;
+        setError(e?.message || "Не удалось загрузить историю");
+      } finally {
+        setLoading(false);
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryKey]);
+
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  useEffect(() => {
+    if (page > totalPages) setPage(1);
+  }, [totalPages, page]);
+
+  function toggleExpand(id: string) {
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  }
+
+  function handleExportCsv() {
+    const csv = toCsv(items);
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `llm_history_page${page}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function statusBadgeColor(s: LlmRequestStatus) {
+    switch (s) {
+      case "success":
+        return "bg-emerald-100 text-emerald-700 border-emerald-200";
+      case "error":
+        return "bg-rose-100 text-rose-700 border-rose-200";
+      default:
+        return "bg-amber-100 text-amber-700 border-amber-200";
+    }
+  }
+
+  const columnsVisibility = useColumnsVisibility();
+
+  return (
+    <TooltipProvider>
+      <div className="p-6 max-w-[1400px] mx-auto">
+        <Card className="shadow-sm">
+          <CardHeader className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <div>
+              <CardTitle className="text-2xl">История запросов</CardTitle>
+              <p className="text-sm text-muted-foreground">Список обращений к LLM с указанием модели, статуса и метрик.</p>
+            </div>
+            <div className="flex gap-2">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="gap-2"><Filter className="h-4 w-4"/>Колонки</Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  {columnsVisibility.available.map((c) => (
+                    <DropdownMenuCheckboxItem
+                      key={c.key}
+                      checked={columnsVisibility.visible[c.key]}
+                      onCheckedChange={(v) => columnsVisibility.set(c.key, !!v)}
+                    >
+                      {c.label}
+                    </DropdownMenuCheckboxItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <Button variant="outline" onClick={handleExportCsv} className="gap-2"><Download className="h-4 w-4"/>Экспорт CSV</Button>
+            </div>
+          </CardHeader>
+
+          <CardContent>
+            {/* Filters */}
+            <div className="grid gap-3 md:grid-cols-12 items-end">
+              <div className="md:col-span-4">
+                <div className="relative">
+                  <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground"/>
+                  <Input
+                    placeholder="Поиск по prompt/response/ID…"
+                    className="pl-8"
+                    value={searchTerm}
+                    onChange={(e) => { setSearchTerm(e.target.value); setPage(1); }}
+                  />
+                </div>
+              </div>
+
+              <div className="md:col-span-3">
+                <Select value={model ?? ""} onValueChange={(v) => { setModel(v || undefined); setPage(1); }}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Модель" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="">Все модели</SelectItem>
+                    {knownModels.map((m) => (
+                      <SelectItem key={m} value={m}>{m}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="md:col-span-2">
+                <Select value={status ?? ""} onValueChange={(v) => { setStatus((v as any) || ""); setPage(1); }}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Статус" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="">Любой</SelectItem>
+                    <SelectItem value="success">Успех</SelectItem>
+                    <SelectItem value="error">Ошибка</SelectItem>
+                    <SelectItem value="pending">Ожидание</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="md:col-span-3 grid grid-cols-2 gap-3">
+                <Input type="date" value={dateFrom} onChange={(e) => { setDateFrom(e.target.value); setPage(1); }} />
+                <Input type="date" value={dateTo} onChange={(e) => { setDateTo(e.target.value); setPage(1); }} />
+              </div>
+
+              <div className="md:col-span-12 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <Select value={sort} onValueChange={(v) => setSort(v)}>
+                    <SelectTrigger className="w-[260px]">
+                      <SelectValue placeholder="Сортировка"/>
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="-createdAt">По дате (новые → старые)</SelectItem>
+                      <SelectItem value="+createdAt">По дате (старые → новые)</SelectItem>
+                      <SelectItem value="-latencyMs">По времени ответа (дольше → быстрее)</SelectItem>
+                      <SelectItem value="+latencyMs">По времени ответа (быстрее → дольше)</SelectItem>
+                      <SelectItem value="-totalTokens">По токенам (больше → меньше)</SelectItem>
+                      <SelectItem value="+totalTokens">По токенам (меньше → больше)</SelectItem>
+                      <SelectItem value="-costUsd">По стоимости (дороже → дешевле)</SelectItem>
+                      <SelectItem value="+costUsd">По стоимости (дешевле → дороже)</SelectItem>
+                    </SelectContent>
+                  </Select>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-muted-foreground">На странице</span>
+                    <Select value={String(pageSize)} onValueChange={(v) => { setPageSize(Number(v)); setPage(1); }}>
+                      <SelectTrigger className="w-[92px]"><SelectValue/></SelectTrigger>
+                      <SelectContent>
+                        {[10,20,50,100].map(n => <SelectItem key={n} value={String(n)}>{n}</SelectItem>)}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Button variant="outline" onClick={() => { setSearchTerm(""); setModel(undefined); setStatus(""); setDateFrom(""); setDateTo(""); setSort("-createdAt"); setPage(1); }}>
+                    Сбросить фильтры
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Table */}
+            <div className="mt-4 border rounded-2xl overflow-hidden">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-10"></TableHead>
+                    <TableHead>Время</TableHead>
+                    <TableHead>Модель</TableHead>
+                    {columnsVisibility.visible.prompt && <TableHead>Prompt</TableHead>}
+                    {columnsVisibility.visible.response && <TableHead>Response</TableHead>}
+                    {columnsVisibility.visible.tokens && <TableHead>Токены</TableHead>}
+                    {columnsVisibility.visible.latency && <TableHead>Время ответа</TableHead>}
+                    {columnsVisibility.visible.cost && <TableHead>Стоимость</TableHead>}
+                    <TableHead>Статус</TableHead>
+                    <TableHead className="text-right">Действия</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {loading && (
+                    <TableRow>
+                      <TableCell colSpan={10} className="text-center py-12">
+                        <div className="inline-flex items-center gap-2 text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin"/>Загрузка…</div>
+                      </TableCell>
+                    </TableRow>
+                  )}
+
+                  {!loading && error && (
+                    <TableRow>
+                      <TableCell colSpan={10} className="py-10 text-center">
+                        <div className="text-rose-600 font-medium">Ошибка: {error}</div>
+                        <div className="text-sm text-muted-foreground mt-1">Проверьте доступность API /api/requests/history</div>
+                      </TableCell>
+                    </TableRow>
+                  )}
+
+                  {!loading && !error && items.length === 0 && (
+                    <TableRow>
+                      <TableCell colSpan={10} className="py-10 text-center text-muted-foreground">Ничего не найдено</TableCell>
+                    </TableRow>
+                  )}
+
+                  {!loading && !error && items.map((it) => (
+                    <React.Fragment key={it.id}>
+                      <TableRow className="hover:bg-muted/40">
+                        <TableCell>
+                          <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => toggleExpand(it.id)}>
+                            {expanded[it.id] ? <ChevronDown className="h-4 w-4"/> : <ChevronRight className="h-4 w-4"/>}
+                          </Button>
+                        </TableCell>
+                        <TableCell className="whitespace-nowrap">{formatDate(it.createdAt)}</TableCell>
+                        <TableCell className="font-medium">{it.model}</TableCell>
+                        {columnsVisibility.visible.prompt && (
+                          <TableCell className="max-w-[320px]">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="line-clamp-2 cursor-help">{truncate(it.prompt, 180)}</span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-[560px] whitespace-pre-wrap">{it.prompt || "(пусто)"}</TooltipContent>
+                            </Tooltip>
+                          </TableCell>
+                        )}
+                        {columnsVisibility.visible.response && (
+                          <TableCell className="max-w-[320px]">
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <span className="line-clamp-2 cursor-help">{truncate(it.response, 180) || "—"}</span>
+                              </TooltipTrigger>
+                              <TooltipContent className="max-w-[560px] whitespace-pre-wrap">{it.response || "(пусто)"}</TooltipContent>
+                            </Tooltip>
+                          </TableCell>
+                        )}
+                        {columnsVisibility.visible.tokens && (
+                          <TableCell className="whitespace-nowrap text-muted-foreground">
+                            in:{it.inputTokens ?? "—"} / out:{it.outputTokens ?? "—"} / all:{it.totalTokens ?? (it.inputTokens && it.outputTokens ? it.inputTokens + it.outputTokens : "—")}
+                          </TableCell>
+                        )}
+                        {columnsVisibility.visible.latency && <TableCell>{formatMs(it.latencyMs)}</TableCell>}
+                        {columnsVisibility.visible.cost && <TableCell>{formatUsd(it.costUsd)}</TableCell>}
+                        <TableCell>
+                          <span className={clsx("px-2 py-1 rounded-md border text-xs", statusBadgeColor(it.status))}>{it.status}</span>
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex justify-end gap-1">
+                            <CopyButton label="Prompt" text={it.prompt} onCopied={(ok) => ok && setCopiedId(it.id+"/p")} copied={copiedId === it.id+"/p"} />
+                            <CopyButton label="Response" text={it.response || ""} onCopied={(ok) => ok && setCopiedId(it.id+"/r")} copied={copiedId === it.id+"/r"} />
+                          </div>
+                        </TableCell>
+                      </TableRow>
+
+                      {expanded[it.id] && (
+                        <TableRow>
+                          <TableCell colSpan={10}>
+                            <div className="grid md:grid-cols-2 gap-4 p-4 bg-muted/30 rounded-xl">
+                              <div className="space-y-2">
+                                <div className="text-sm font-semibold">Prompt</div>
+                                <pre className="p-3 rounded-xl bg-background border overflow-auto max-h-72 whitespace-pre-wrap text-sm">{it.prompt || "(пусто)"}</pre>
+                              </div>
+                              <div className="space-y-2">
+                                <div className="text-sm font-semibold">Response</div>
+                                <pre className="p-3 rounded-xl bg-background border overflow-auto max-h-72 whitespace-pre-wrap text-sm">{it.response || "(пусто)"}</pre>
+                              </div>
+                              {it.meta && (
+                                <div className="md:col-span-2 space-y-2">
+                                  <div className="text-sm font-semibold">Метаданные</div>
+                                  <pre className="p-3 rounded-xl bg-background border overflow-auto max-h-72 whitespace-pre text-xs">{JSON.stringify(it.meta, null, 2)}</pre>
+                                </div>
+                              )}
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+
+            {/* Pagination */}
+            <div className="flex items-center justify-between mt-4">
+              <div className="text-sm text-muted-foreground">Всего: <span className="font-medium text-foreground">{total}</span></div>
+              <div className="flex items-center gap-2">
+                <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>Назад</Button>
+                <Badge variant="secondary" className="px-3 py-1 rounded-full">{page} / {totalPages}</Badge>
+                <Button variant="outline" size="sm" disabled={page >= totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>Вперёд</Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </TooltipProvider>
+  );
+}
+
+// =============================
+// Helpers: column visibility & copy button
+// =============================
+function useColumnsVisibility() {
+  type Key = "prompt" | "response" | "tokens" | "latency" | "cost";
+  const available: { key: Key; label: string }[] = [
+    { key: "prompt", label: "Prompt" },
+    { key: "response", label: "Response" },
+    { key: "tokens", label: "Токены" },
+    { key: "latency", label: "Время ответа" },
+    { key: "cost", label: "Стоимость" },
+  ];
+  const [visible, setVisible] = useState<Record<Key, boolean>>({
+    prompt: true,
+    response: true,
+    tokens: true,
+    latency: true,
+    cost: true,
+  });
+  return {
+    available,
+    visible,
+    set: (k: Key, v: boolean) => setVisible((prev) => ({ ...prev, [k]: v })),
+  };
+}
+
+function CopyButton({ label, text, copied, onCopied }: { label: string; text: string; copied?: boolean; onCopied?: (ok: boolean) => void }) {
+  const [busy, setBusy] = useState(false);
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-8 w-8"
+          onClick={async () => {
+            setBusy(true);
+            const ok = await copyToClipboard(text || "");
+            onCopied?.(ok);
+            setBusy(false);
+          }}
+          aria-label={`Скопировать ${label}`}
+        >
+          {busy ? <Loader2 className="h-4 w-4 animate-spin"/> : copied ? <Check className="h-4 w-4"/> : <Copy className="h-4 w-4"/>}
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>Скопировать {label}</TooltipContent>
+    </Tooltip>
+  );
+}
+ *@

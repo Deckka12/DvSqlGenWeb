@@ -1,0 +1,3107 @@
+{
+    "sections": {
+        "30EB9B87-822B-4753-9A50-A1825DCA1B74": {
+            "alias": "MainInfo",
+            "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
+            "card_type_alias": "CardDocument",
+            "fields": [
+                {
+                    "field_id": "652192E3-9BFC-42E9-8284-032923CC5E09",
+                    "alias": "DeliveryDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "FDC1B0D7-9684-417D-9B72-049AEE1E4339",
+                    "alias": "SenderStaffEmployee",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "DED78135-0444-4A4E-A04D-0B3186F8C893",
+                    "alias": "Tasks",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "9BC6B0E9-A809-43F1-A27F-323A28D1B010",
+                        "section_alias": "Tasks",
+                        "card_type_id": "4F34CC37-85AC-4D15-B694-2950E7F61055",
+                        "card_type_alias": "CardTaskList",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "CB760041-1D1F-4FB4-BB25-0E60C597E972",
+                    "alias": "WasSent",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "32412014-D6AF-476F-9F84-1B3C8C25699A",
+                    "alias": "VersioningType",
+                    "section_alias": "MainInfo",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "DFA12A81-2EB4-415F-B46F-1DE5660D963E",
+                    "alias": "SignatureList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "4A1AC881-DCBD-42C2-9C7A-E1DE7723400A",
+                        "section_alias": "Signatures",
+                        "card_type_id": "CA25A38B-C65E-4A97-94EE-8E5067A6BECA",
+                        "card_type_alias": "CardSignatureList",
+                        "target": "CardSignatureList.Signatures"
+                    }
+                },
+                {
+                    "field_id": "04561717-4469-4D78-BF5A-29DD0BFEB62E",
+                    "alias": "RegNumberProvisional",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "61C8CC7C-35CE-49E5-9CCD-E9F3C1129445",
+                        "section_alias": "Numbers",
+                        "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
+                        "card_type_alias": "CardDocument",
+                        "target": "CardDocument.Numbers"
+                    }
+                },
+                {
+                    "field_id": "07447513-3B61-4CBF-8758-2FD7B0BA6858",
+                    "alias": "AcquaintanceGroup",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "5B607FFC-7EA2-47B1-90D4-BB72A0FE7280",
+                        "section_alias": "AlternateHierarchy",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.AlternateHierarchy"
+                    }
+                },
+                {
+                    "field_id": "FEF2DC80-3EF3-4792-8100-335BAA421189",
+                    "alias": "NumberOfSheets",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "547D7B50-4664-4C0F-B51F-3438EFBC9C4B",
+                    "alias": "CaseId",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "A4914FF1-AAB2-4373-8880-36B271164B47",
+                    "alias": "Content",
+                    "section_alias": "MainInfo",
+                    "type": 16,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "1F9C6D5F-7CCE-47A5-A8C6-53CEAA5947E4",
+                    "alias": "StatusId",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "F27041F0-E1A4-48CF-8ABF-5E02D6879001",
+                    "alias": "Kind",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "C7BA000C-6203-4D7F-8C6B-5CB6F1E6F851",
+                        "section_alias": "CardKinds",
+                        "card_type_id": "8F704E7D-A123-4917-94B4-F3B851F193B2",
+                        "card_type_alias": "RefKinds",
+                        "target": "RefKinds.CardKinds"
+                    }
+                },
+                {
+                    "field_id": "02DDB095-B817-4F81-84E4-637F667E9BBE",
+                    "alias": "CreatedByTrigger",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "45B3B115-6615-44C5-977A-64404221BA8F",
+                    "alias": "ReferenceList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "568CE0A6-7096-43CC-9800-E0B268B14CC4",
+                        "section_alias": "References",
+                        "card_type_id": "C9B39BEF-1047-407B-9324-8EC00D64FBEE",
+                        "card_type_alias": "CardReferenceList",
+                        "target": "CardReferenceList.References"
+                    }
+                },
+                {
+                    "field_id": "923927ED-89AA-44DD-9724-6C67879E60E7",
+                    "alias": "RegistrationPlaceId",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "49639A33-50E9-494F-8673-77F41949076F",
+                    "alias": "NumberOfSheetsAppendix",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "AAD9382B-DA08-4293-AA15-7BCA6849CDCD",
+                    "alias": "WorkGroup",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "5B607FFC-7EA2-47B1-90D4-BB72A0FE7280",
+                        "section_alias": "AlternateHierarchy",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.AlternateHierarchy"
+                    }
+                },
+                {
+                    "field_id": "AE8D5194-9879-4543-A029-7ECB9B7BD428",
+                    "alias": "RegNumber",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "61C8CC7C-35CE-49E5-9CCD-E9F3C1129445",
+                        "section_alias": "Numbers",
+                        "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
+                        "card_type_alias": "CardDocument",
+                        "target": "CardDocument.Numbers"
+                    }
+                },
+                {
+                    "field_id": "AC21088C-28FC-4A67-9F68-805E89DB0B98",
+                    "alias": "RegDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "7374638B-681A-40FF-B504-9823CFE6D4DA",
+                    "alias": "CategoryList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "337CC874-BF87-4C70-A29B-F099F630B9F2",
+                        "card_type_alias": "CardCategoryList",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "7EDB78AB-7F54-4BDF-AE89-9D935925AF07",
+                    "alias": "DocProperty",
+                    "section_alias": "MainInfo",
+                    "type": 16,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": true,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "57E5E407-6FA9-41CD-A453-A0569F1428E8",
+                    "alias": "VidOIS",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": true,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "EA5B0CF9-9235-4ED2-AAD4-A68C6717125C",
+                    "alias": "ResponsDepartment",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "7473F07F-11ED-4762-9F1E-7FF10808DDD1",
+                        "section_alias": "Units",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Units"
+                    }
+                },
+                {
+                    "field_id": "BD21C73E-6706-482B-8028-A7681CD15AC7",
+                    "alias": "ItemID",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "C849EA39-49EB-4A3C-BC50-BA49CBEBF906",
+                    "alias": "ClerkId",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "8C2F3AEF-D178-4245-B6DF-C809C7642779",
+                    "alias": "Name",
+                    "section_alias": "MainInfo",
+                    "type": 10,
+                    "max": 480,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "08FD0198-DCEA-4C16-8B5D-CC10761BE290",
+                    "alias": "SecurityId",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "EDE96327-87E7-4EDE-B012-E3AEE125A3B6",
+                    "alias": "TransferLog",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "E96FB6B2-AC95-4817-878D-E3BDD6E525D9",
+                    "alias": "ExternalNumber",
+                    "section_alias": "MainInfo",
+                    "type": 9,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "61C8CC7C-35CE-49E5-9CCD-E9F3C1129445",
+                        "section_alias": "Numbers",
+                        "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
+                        "card_type_alias": "CardDocument",
+                        "target": "CardDocument.Numbers"
+                    }
+                },
+                {
+                    "field_id": "FE57AC59-A298-4F9B-9C85-E85D771041E8",
+                    "alias": "Author",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "2717F5F2-1DF5-4DD6-88B5-F2602CB8BB67",
+                    "alias": "Surveys",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "A1D1A50B-8E1E-4116-A93A-684D95F50607",
+                        "card_type_alias": "CardSurveyList",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "16305803-66C4-4236-9976-FC987405A983",
+                    "alias": "Registrar",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "3138CDF0-FE06-4D0B-B113-FE4D9263FA87",
+                    "alias": "DeliveryTypeId",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "BFCBA74D-FBDD-4050-9FDE-FE6746D23150",
+                    "alias": "State",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "521B4477-DD10-4F57-A453-09C70ADB7799",
+                        "section_alias": "States",
+                        "card_type_id": "443F55F0-C8AB-4DD3-BCBD-5328C7C9D385",
+                        "card_type_alias": "RefStates",
+                        "target": "RefStates.States"
+                    }
+                }
+            ]
+        },
+        "DBC8AE9D-C1D2-4D5E-978B-339D22B32482": {
+            "alias": "Employees",
+            "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+            "card_type_alias": "RefStaff",
+            "fields": [
+                {
+                    "field_id": "C6D6F038-EF68-4E6F-BA62-00DAD8310851",
+                    "alias": "Email",
+                    "section_alias": "Employees",
+                    "type": 9,
+                    "max": 64,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "77258AA6-C887-4899-8042-05DA986A9D3A",
+                    "alias": "Status",
+                    "section_alias": "Employees",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3AA2DA76-05E5-4C56-BEA6-0A60BA6FE68F",
+                    "alias": "Importance",
+                    "section_alias": "Employees",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "1E832E93-8BB7-410F-A976-0B3FA330C45A",
+                    "alias": "LockedFrom",
+                    "section_alias": "Employees",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "61D90DC1-9B0B-44FE-B370-0EE4D91BECD7",
+                    "alias": "InactiveStatus",
+                    "section_alias": "Employees",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "0505CF20-29A4-4EAA-A300-181830B994F1",
+                    "alias": "Manager",
+                    "section_alias": "Employees",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "5D3267F0-5A84-4BD4-957F-18E8D8C334A5",
+                    "alias": "AccountName",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 128,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "4A17F46D-A641-4371-9FB0-1908653EDFBC",
+                    "alias": "IDCode",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 128,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "C45D4014-2EFB-464A-AE86-19B8388080A9",
+                    "alias": "Fax",
+                    "section_alias": "Employees",
+                    "type": 9,
+                    "max": 64,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "E30FF7DE-6F15-4E3E-A700-1EEC306EC291",
+                    "alias": "IDIssuedBy",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 256,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "6E2F4C3F-2648-4E51-8F97-1FCC9E41EDAC",
+                    "alias": "AccountSID",
+                    "section_alias": "Employees",
+                    "type": 9,
+                    "max": 256,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "0DFFE486-2BB6-4243-A3C5-207082B386AA",
+                    "alias": "PersonalFolder",
+                    "section_alias": "Employees",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "FE27631D-EEEA-4E2E-A04C-D4351282FB55",
+                        "section_alias": "Folders",
+                        "card_type_id": "DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2",
+                        "card_type_alias": "FoldersCard",
+                        "target": "FoldersCard.Folders"
+                    }
+                },
+                {
+                    "field_id": "FA92655C-CB78-40C6-9211-21FA5BE6F895",
+                    "alias": "Gender",
+                    "section_alias": "Employees",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3194CA19-1A54-4B25-9C6B-25566171D935",
+                    "alias": "EndDate",
+                    "section_alias": "Employees",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "6D2C4D49-1BFE-4268-888D-28D8658EEF7D",
+                    "alias": "SysAccountName",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 128,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "396BE1D6-E996-434B-9D72-2B87D720DDE5",
+                    "alias": "Comments",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 1024,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "6169BE39-4E60-4731-A1DB-2E9C87B282DA",
+                    "alias": "DelegateFolder",
+                    "section_alias": "Employees",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "FE27631D-EEEA-4E2E-A04C-D4351282FB55",
+                        "section_alias": "Folders",
+                        "card_type_id": "DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2",
+                        "card_type_alias": "FoldersCard",
+                        "target": "FoldersCard.Folders"
+                    }
+                },
+                {
+                    "field_id": "3056F2B1-F28A-4357-9F79-3CC9057FB6A3",
+                    "alias": "CalendarID",
+                    "section_alias": "Employees",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "B788061D-B569-4C44-8F30-EC6C0E791EA9",
+                        "section_alias": "MainInfo",
+                        "card_type_id": "F31B9F60-F81F-4825-8216-FC3C1FF15222",
+                        "card_type_alias": "CardCalendar",
+                        "target": "CardCalendar.MainInfo"
+                    }
+                },
+                {
+                    "field_id": "9352490E-D868-4D60-AD21-3D7D000E7C17",
+                    "alias": "IPPhone",
+                    "section_alias": "Employees",
+                    "type": 9,
+                    "max": 64,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "10998756-06CC-40A7-8D36-4265FEC1AFD3",
+                    "alias": "CardEmployeeID",
+                    "section_alias": "Employees",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "67F37CC6-EC55-4F12-92C0-EC0B0938B530",
+                        "card_type_alias": "CardEmployee",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "36EE4BAD-8A18-4696-A55B-47A2A53470FB",
+                    "alias": "LockedTo",
+                    "section_alias": "Employees",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "76CF9965-E52B-4002-AC44-4CD58BDEE68F",
+                    "alias": "CardEmployeeKind",
+                    "section_alias": "Employees",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "C7BA000C-6203-4D7F-8C6B-5CB6F1E6F851",
+                        "section_alias": "CardKinds",
+                        "card_type_id": "8F704E7D-A123-4917-94B4-F3B851F193B2",
+                        "card_type_alias": "RefKinds",
+                        "target": "RefKinds.CardKinds"
+                    }
+                },
+                {
+                    "field_id": "7659A92C-47FD-46F3-92C2-5D9CE0CD833D",
+                    "alias": "ClockNumber",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 128,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "498A4756-7BBC-438F-B488-6CD7607CDEDD",
+                    "alias": "ADsNotSynchronize",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "1110622A-0A6C-4708-B563-720E537227C4",
+                    "alias": "SyncTag",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 256,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "8A2C8120-08B8-4E51-98CA-75D5BDB0171A",
+                    "alias": "MiddleName",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 32,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "05A1908A-DB46-47D8-896C-76CAED1D3DDD",
+                    "alias": "DisplayString",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 256,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "5EC20BC5-DF69-4FDC-BF4E-7D61D2E8AA4B",
+                    "alias": "RoomNumber",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 64,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "64D2A6CD-385B-45DA-9A3F-7E79212A59F7",
+                    "alias": "IDNumber",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 32,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3CC218C8-AF1A-40A5-ACEF-7FACA0D570C7",
+                    "alias": "CardEmployeeKindSpecified",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "E5A6D1A9-3DB1-4F01-B782-95798ED7A8D5",
+                    "alias": "Position",
+                    "section_alias": "Employees",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "CFDFE60A-21A8-4010-84E9-9D2DF348508C",
+                        "section_alias": "Positions",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Positions"
+                    }
+                },
+                {
+                    "field_id": "E5FAC918-DCA4-4FA9-8AEE-9CF77E35637F",
+                    "alias": "NotSearchable",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "C93DE5AB-2974-48C5-A1CD-A09F38B300B1",
+                    "alias": "LastName",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 32,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "574A993D-56CD-4689-9326-ADAEDDABC07F",
+                    "alias": "Phone",
+                    "section_alias": "Employees",
+                    "type": 9,
+                    "max": 64,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "613BB493-F485-4E23-B669-C6623E12321C",
+                    "alias": "NotAvailable",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "905D4184-6692-4FBA-8ADC-C882E164AFCF",
+                    "alias": "ActiveEmployee",
+                    "section_alias": "Employees",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "38AB129D-7CB1-4884-AF0C-CBFEEC7337E8",
+                    "alias": "MobilePhone",
+                    "section_alias": "Employees",
+                    "type": 9,
+                    "max": 64,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "6A88C38E-7CDF-4DA0-A20D-CF16365B7A72",
+                    "alias": "ShowAccountDialog",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "B2C70F55-C1D9-4504-BBFE-CFB7B3BE0AF6",
+                    "alias": "FirstName",
+                    "section_alias": "Employees",
+                    "type": 10,
+                    "max": 32,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "4C89283B-8CDA-4DEB-9D05-DB8E069F0B13",
+                    "alias": "IsDefault",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "8BFE4140-34A2-4E57-A66D-DCC04D231F36",
+                    "alias": "AskForKeyContainerPassword",
+                    "section_alias": "Employees",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "27B38BF0-8459-4FC0-A9AA-DCF14E3533A0",
+                    "alias": "StartDate",
+                    "section_alias": "Employees",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "9FE9BE41-4DC1-4CE9-AA54-E9CE4D5DB96B",
+                    "alias": "ShowCertificateWindow",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "25A6E1E4-5502-46F4-9704-F15BB8D78C48",
+                    "alias": "UseThinClient",
+                    "section_alias": "Employees",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "919EA91D-5E87-4553-9309-F5A8A31CC967",
+                    "alias": "BirthDate",
+                    "section_alias": "Employees",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "C41EE1FE-CAF4-4F2E-B578-F8497705A1F1",
+                    "alias": "RoutingType",
+                    "section_alias": "Employees",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "FF7248CB-C141-4C4B-8890-FA183BFEB3AF",
+                    "alias": "HomePhone",
+                    "section_alias": "Employees",
+                    "type": 9,
+                    "max": 64,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                }
+            ]
+        },
+        "1B1A44FB-1FB1-4876-83AA-95AD38907E24": {
+            "alias": "Items",
+            "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+            "card_type_alias": "RefBaseUniversal",
+            "fields": [
+                {
+                    "field_id": "4E505D53-27D4-4D68-B935-2322F4F8BB4A",
+                    "alias": "ItemCard",
+                    "section_alias": "Items",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "E898C387-0162-4F37-A93C-13BAA07FF183",
+                        "card_type_alias": "CardBaseUniversalItem",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "BC8EEAFC-F30D-452C-A4F0-28DBC112F850",
+                    "alias": "Order",
+                    "section_alias": "Items",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "7B7D0814-757C-47F4-9A8C-513AEC816692",
+                    "alias": "NotAvailable",
+                    "section_alias": "Items",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "9276E092-DDB2-4F77-9155-722A0238CA8D",
+                    "alias": "Name",
+                    "section_alias": "Items",
+                    "type": 10,
+                    "max": 512,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "8B45BC58-6831-40C1-B654-E0C0C6E36115",
+                    "alias": "Description",
+                    "section_alias": "Items",
+                    "type": 10,
+                    "max": 2048,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                }
+            ]
+        },
+        "C8C71DEB-9D53-49E9-8499-95AAF8A94868": {
+            "alias": "DocInfo",
+            "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
+            "card_type_alias": "CardDocument",
+            "fields": [
+                {
+                    "field_id": "B5911698-5E1C-41D3-A090-069526490A7E",
+                    "alias": "Duplicate",
+                    "section_alias": "DocInfo",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "C6F191CD-3C7E-4AAD-9054-120E32AB6369",
+                    "alias": "DocType",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "7F39CACB-AFF0-4DE2-B23E-1DC24EE32635",
+                    "alias": "Attachment",
+                    "section_alias": "DocInfo",
+                    "type": 10,
+                    "max": 4000,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "D521D2AA-4533-4CB9-BEF2-28368AA2689D",
+                    "alias": "DepartmentCode",
+                    "section_alias": "DocInfo",
+                    "type": 10,
+                    "max": 4000,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "173FC8A6-F1EC-4CC1-9C5E-2FCFA4C38231",
+                    "alias": "BranchCode",
+                    "section_alias": "DocInfo",
+                    "type": 10,
+                    "max": 4000,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3D0C05FB-F9FC-4BF6-9088-3A54D9B9347C",
+                    "alias": "PrintFormFileId",
+                    "section_alias": "DocInfo",
+                    "type": 11,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "609BE3D7-DA80-46E3-B93E-3E935DCE1CFA",
+                    "alias": "Controller",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "A88610FB-C92A-420D-99B0-3FFD095AC7AF",
+                    "alias": "ResponsiblePerformerPhone",
+                    "section_alias": "DocInfo",
+                    "type": 9,
+                    "max": 8000,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3C013C98-A3AB-496D-A7EC-42FDFB07EF82",
+                    "alias": "CodeDocumentType",
+                    "section_alias": "DocInfo",
+                    "type": 10,
+                    "max": 4000,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "A22E36C8-4333-4EFD-8771-48D389E25F9C",
+                    "alias": "SignType",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "0F213D3C-5698-4646-AD05-52B9A4DF0654",
+                    "alias": "Template",
+                    "section_alias": "DocInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "9A9B22F5-C037-4535-9156-583B278C48BC",
+                    "alias": "SendingKind",
+                    "section_alias": "DocInfo",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3985A278-7DF4-4001-ACB3-584C9A2A0263",
+                    "alias": "CreatedFromContractByButton",
+                    "section_alias": "DocInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "ABBD2750-68E6-472A-BB5E-5B425DA9155A",
+                    "alias": "CorrectionNumberString",
+                    "section_alias": "DocInfo",
+                    "type": 16,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "D2356E52-2AB3-4732-9135-5DF781EF6348",
+                    "alias": "Case",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "81183CC9-C5C6-4461-A828-8A3BB518B8B9",
+                    "alias": "ProjectNumber",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "61C8CC7C-35CE-49E5-9CCD-E9F3C1129445",
+                        "section_alias": "Numbers",
+                        "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
+                        "card_type_alias": "CardDocument",
+                        "target": "CardDocument.Numbers"
+                    }
+                },
+                {
+                    "field_id": "6172C737-0DE3-4B44-A731-8FC55D787CB6",
+                    "alias": "DateExecution",
+                    "section_alias": "DocInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "EBD9387C-D987-4CDC-86AF-9661D9699F63",
+                    "alias": "BranchItem",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "00BE28B0-292C-4B6C-B08A-A69A16EA79B6",
+                    "alias": "Address",
+                    "section_alias": "DocInfo",
+                    "type": 16,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "899EAA4B-0AF5-4067-AB92-AB4B7598039A",
+                    "alias": "CompletionDate",
+                    "section_alias": "DocInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "FA3B4A00-B8AF-4C8F-93A2-ADADC75087A9",
+                    "alias": "AutoReg",
+                    "section_alias": "DocInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "8833D841-66D4-4DED-9E26-B0F84EA60E75",
+                    "alias": "CorrectionDate",
+                    "section_alias": "DocInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "35B46238-D2E6-4004-B9C6-BC7295B519E2",
+                    "alias": "UFD",
+                    "section_alias": "DocInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
+                        "card_type_alias": "CardDocument",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "958769F7-DE56-48D3-BCC1-BCB49B7D4874",
+                    "alias": "SFRegDate",
+                    "section_alias": "DocInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "1536975D-A5AC-4E6D-97B9-BF44AD110DCF",
+                    "alias": "DocKind",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "C31DC551-5DAE-45B2-BB20-C0A0F45EFD18",
+                    "alias": "PublicIdentifier",
+                    "section_alias": "DocInfo",
+                    "type": 9,
+                    "max": 8000,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "EE8926F3-850A-4FEE-9723-C2570D6EE31D",
+                    "alias": "Department",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "7473F07F-11ED-4762-9F1E-7FF10808DDD1",
+                        "section_alias": "Units",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Units"
+                    }
+                },
+                {
+                    "field_id": "6EB94316-2D8A-48E1-A8D6-C70EEAB26E7E",
+                    "alias": "RegistrationOnly",
+                    "section_alias": "DocInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "8AF635F8-DF1B-49EF-9D7A-C75220E2B9A0",
+                    "alias": "DocTemplate",
+                    "section_alias": "DocInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "E1F67632-5CD2-4CB5-8185-D048337F57DB",
+                    "alias": "SendingType",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "A3672B70-6316-4CBF-BFEB-D0A49FBAF6FF",
+                    "alias": "Iteratively",
+                    "section_alias": "DocInfo",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "CAC0AC61-5D5D-47B4-8AEA-D47180470AEF",
+                    "alias": "Valid",
+                    "section_alias": "DocInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "6B51E020-F220-47EB-AFDA-D79104B0868E",
+                    "alias": "TypeOfExecution",
+                    "section_alias": "DocInfo",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "CF930BD2-7C18-4654-99B8-D8F525DA5798",
+                    "alias": "Must_registration",
+                    "section_alias": "DocInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "40A46F00-A9A8-49C8-87C2-E0204A46C30E",
+                    "alias": "DeliveryType",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "B29D979B-54ED-4C6E-AF90-E49344884D80",
+                    "alias": "Stamp",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "F6957DBB-AD80-45F6-AF3B-E6276DBB8779",
+                    "alias": "ControlLabel",
+                    "section_alias": "DocInfo",
+                    "type": 10,
+                    "max": 4000,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "B9104BBA-3B1C-4F7D-B77D-EC40D152432D",
+                    "alias": "IsObjectOfMutualSettlements",
+                    "section_alias": "DocInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "F8474B6E-37DE-458E-ADA5-EED9130EE74F",
+                    "alias": "Branch",
+                    "section_alias": "DocInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "7473F07F-11ED-4762-9F1E-7FF10808DDD1",
+                        "section_alias": "Units",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Units"
+                    }
+                },
+                {
+                    "field_id": "E27804F6-CBFD-4D7E-8BDC-F5EBD3B75A5C",
+                    "alias": "DateExecutionCompletion",
+                    "section_alias": "DocInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "AFB524AC-E1DA-40A1-9A1C-FC1778D15A24",
+                    "alias": "SFNumberString",
+                    "section_alias": "DocInfo",
+                    "type": 16,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": true,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                }
+            ]
+        },
+        "20D21193-9F7F-4B62-8D69-272E78E1D6A8": {
+            "alias": "MainInfo",
+            "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
+            "card_type_alias": "CardTask",
+            "fields": [
+                {
+                    "field_id": "9D3FF1C9-1A76-45FB-ACA4-0BC98D6195FF",
+                    "alias": "State",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "521B4477-DD10-4F57-A453-09C70ADB7799",
+                        "section_alias": "States",
+                        "card_type_id": "443F55F0-C8AB-4DD3-BCBD-5328C7C9D385",
+                        "card_type_alias": "RefStates",
+                        "target": "RefStates.States"
+                    }
+                },
+                {
+                    "field_id": "F5C843C0-5CE1-4727-81BF-0C764A43243B",
+                    "alias": "Name",
+                    "section_alias": "MainInfo",
+                    "type": 10,
+                    "max": 480,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "E129CAD7-C501-498A-9AE0-0F9D21C45238",
+                    "alias": "WorkGroup",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "5B607FFC-7EA2-47B1-90D4-BB72A0FE7280",
+                        "section_alias": "AlternateHierarchy",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.AlternateHierarchy"
+                    }
+                },
+                {
+                    "field_id": "0C8C4063-90B7-465E-809A-10EA68B98F3F",
+                    "alias": "EndDateActual",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "0BBEB79A-D09E-4A70-880C-195F3F44E625",
+                    "alias": "CompletionResult",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "40FF71AF-8A8B-41DF-8F60-4DA6C6790DAE",
+                        "section_alias": "CompletionOptions",
+                        "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
+                        "card_type_alias": "CardTask",
+                        "target": "CardTask.CompletionOptions"
+                    }
+                },
+                {
+                    "field_id": "F9C788D5-5A6B-4882-8D6A-1B7D92B5EF36",
+                    "alias": "OnControl",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "491BD2E0-D32B-4E4C-9537-1F52B7B091EB",
+                    "alias": "CancelDelegationUser",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "40411B9E-2ED8-4EDB-975A-1F66E6DA93E5",
+                    "alias": "Author",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "C487CB04-40A3-43BA-BC68-2B03773F6823",
+                    "alias": "LaboriousnessActual",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "B8BD297D-596B-481A-8B97-2D5FA6E349B6",
+                    "alias": "CompletedUser",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "000C580B-51A3-4284-842A-2F3B80BAE95D",
+                    "alias": "Controller",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "BB80F3DD-5735-401A-B3C5-3112E8E6C358",
+                    "alias": "Laboriousness",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3F049BB2-5C86-4C19-ABC8-32A642F225D3",
+                    "alias": "PercentCompleted",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3A1B3C40-01AB-45DE-BACC-3FAD0E241C13",
+                    "alias": "Priority",
+                    "section_alias": "MainInfo",
+                    "type": 5,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "908221FC-01B4-42BB-A6E3-426793DF1786",
+                    "alias": "StartTaskDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "A4B4AC01-6415-432A-A182-44D6E8A0DDDE",
+                    "alias": "EndDateBeforePostponement",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "F3B563B2-86B0-4A6C-AE73-453CDD0F36AB",
+                    "alias": "ResponsibleTaskId",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "20D21193-9F7F-4B62-8D69-272E78E1D6A8",
+                        "section_alias": "MainInfo",
+                        "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
+                        "card_type_alias": "CardTask",
+                        "target": "CardTask.MainInfo"
+                    }
+                },
+                {
+                    "field_id": "77817B4F-C98C-4BEB-8FF7-4AB608B3F207",
+                    "alias": "ReconcileFileList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "065E13F8-4E13-4E47-9E2A-A5F86E6439AA",
+                        "card_type_alias": "CardFileList",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "034A0CFD-6BDD-4704-8B2A-4F5A5D90FF08",
+                    "alias": "RequestedEndDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "4D87C316-DAB3-4A9D-965E-55991B20F12D",
+                    "alias": "ForManager",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "F30DFD0D-C51F-4940-A317-55F11F0A40A0",
+                    "alias": "KindControl",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "1B1A44FB-1FB1-4876-83AA-95AD38907E24",
+                        "section_alias": "Items",
+                        "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
+                        "card_type_alias": "RefBaseUniversal",
+                        "target": "RefBaseUniversal.Items"
+                    }
+                },
+                {
+                    "field_id": "10576EA7-1AB2-4F84-B0FF-56AE23C75755",
+                    "alias": "SignatureList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "4A1AC881-DCBD-42C2-9C7A-E1DE7723400A",
+                        "section_alias": "Signatures",
+                        "card_type_id": "CA25A38B-C65E-4A97-94EE-8E5067A6BECA",
+                        "card_type_alias": "CardSignatureList",
+                        "target": "CardSignatureList.Signatures"
+                    }
+                },
+                {
+                    "field_id": "6E37BAD7-865A-430F-9C99-57E970F99D14",
+                    "alias": "CreatedByTrigger",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "931BBCED-9BCF-4382-93C4-5FD8748E61D4",
+                    "alias": "ReminderDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "87760C58-3D85-46C7-8EC1-62534399A22B",
+                    "alias": "Number",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "F8008032-E07B-467D-809F-DE0EACC92E29",
+                        "section_alias": "Numbers",
+                        "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
+                        "card_type_alias": "CardTask",
+                        "target": "CardTask.Numbers"
+                    }
+                },
+                {
+                    "field_id": "597054CB-A22B-4A6C-B9F0-6402FFC76694",
+                    "alias": "StartDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "CF90A281-A9C2-43F6-8675-67C154389EE6",
+                    "alias": "Reminder",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3ED8C205-465B-482F-A802-691D4699DA9B",
+                    "alias": "RequiresAcceptance",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "CEEB9FD1-2308-41A0-A0E1-6C6ACC245C62",
+                    "alias": "Report",
+                    "section_alias": "MainInfo",
+                    "type": 16,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "211D47C4-D097-4E04-AE7F-6EC6EAF628AA",
+                    "alias": "ParentTask",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "20D21193-9F7F-4B62-8D69-272E78E1D6A8",
+                        "section_alias": "MainInfo",
+                        "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
+                        "card_type_alias": "CardTask",
+                        "target": "CardTask.MainInfo"
+                    }
+                },
+                {
+                    "field_id": "9E23DEC2-83E7-41BF-9E1A-6F182ADFA166",
+                    "alias": "StartDateActual",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "59AB5278-FEE2-4CA6-9DEF-8534F96814C5",
+                    "alias": "StartDateBeforePostponement",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "E44EB4F2-7AF0-4541-9374-880ADAB97BF2",
+                    "alias": "AdditionalFileList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "065E13F8-4E13-4E47-9E2A-A5F86E6439AA",
+                        "card_type_alias": "CardFileList",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "465C4F78-3944-4D8F-8DAE-8EE1CDEE74FA",
+                    "alias": "ReferenceList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "C9B39BEF-1047-407B-9324-8EC00D64FBEE",
+                        "card_type_alias": "CardReferenceList",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "B6B1A3C4-5B98-4916-8C82-8F9A18DFB647",
+                    "alias": "ExecutionStopped",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "A43EC818-2D68-45AA-B235-991CDD97367D",
+                    "alias": "Kind",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "C7BA000C-6203-4D7F-8C6B-5CB6F1E6F851",
+                        "section_alias": "CardKinds",
+                        "card_type_id": "8F704E7D-A123-4917-94B4-F3B851F193B2",
+                        "card_type_alias": "RefKinds",
+                        "target": "RefKinds.CardKinds"
+                    }
+                },
+                {
+                    "field_id": "19171AF3-F135-420B-8ADF-9AD400332305",
+                    "alias": "DurationActual",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "1CBA5860-EC5B-409F-B876-A0399F9CFD76",
+                    "alias": "Delegate",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "2BD2883D-0FBE-47F3-A24B-D5489466765A",
+                        "section_alias": "Delegates",
+                        "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
+                        "card_type_alias": "CardTask",
+                        "target": "CardTask.Delegates"
+                    }
+                },
+                {
+                    "field_id": "36E13E4E-25C2-4D07-ADF6-A2E634CAFE46",
+                    "alias": "ResponsibleTaskPerformerId",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "62823E7F-ECA8-4351-B94E-ACC6CC6B1DC9",
+                    "alias": "RejectedUser",
+                    "section_alias": "MainInfo",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                },
+                {
+                    "field_id": "97237678-0112-498A-A371-B1DBBFA295E1",
+                    "alias": "PostponementCount",
+                    "section_alias": "MainInfo",
+                    "type": 0,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "6769C313-61DD-4A8C-A0E4-B602C3F925C9",
+                    "alias": "ChildTaskList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "4F34CC37-85AC-4D15-B694-2950E7F61055",
+                        "card_type_alias": "CardTaskList",
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "1E3A005B-AD5C-4AE8-B6A0-B82975E6875A",
+                    "alias": "ControlDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "8922D083-4FE1-44B1-8806-B9CC3BACB724",
+                    "alias": "EndDate",
+                    "section_alias": "MainInfo",
+                    "type": 2,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "2D3FE8E1-75CF-4029-87E0-BAEBC0F42D62",
+                    "alias": "IsOverdue",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "6A2DB374-BE34-4270-BD81-C06E0FBF48A1",
+                    "alias": "OutlookTask",
+                    "section_alias": "MainInfo",
+                    "type": 10,
+                    "max": 256,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "20251AF3-A329-447A-B36D-CFE51D706D60",
+                    "alias": "Content",
+                    "section_alias": "MainInfo",
+                    "type": 16,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "F8BF8AB7-78F0-4E68-AF7F-D168B6988021",
+                    "alias": "CreateMessages",
+                    "section_alias": "MainInfo",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "3BF90051-2E2B-42D1-B00A-E6E067C3072C",
+                    "alias": "ReadOnlyFileList",
+                    "section_alias": "MainInfo",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "065E13F8-4E13-4E47-9E2A-A5F86E6439AA",
+                        "card_type_alias": "CardFileList",
+                        "target": null
+                    }
+                }
+            ]
+        },
+        "9BC6B0E9-A809-43F1-A27F-323A28D1B010": {
+            "alias": "Tasks",
+            "card_type_id": "4F34CC37-85AC-4D15-B694-2950E7F61055",
+            "card_type_alias": "CardTaskList",
+            "fields": [
+                {
+                    "field_id": "06AA829E-4901-4A44-9DB9-3B3A08CB5104",
+                    "alias": "Task",
+                    "section_alias": "Tasks",
+                    "type": 14,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "20D21193-9F7F-4B62-8D69-272E78E1D6A8",
+                        "section_alias": "MainInfo",
+                        "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
+                        "card_type_alias": "CardTask",
+                        "target": "CardTask.MainInfo"
+                    }
+                },
+                {
+                    "field_id": "48D09A1B-640F-4DA1-8A9B-670D8D06EC54",
+                    "alias": "OnControl",
+                    "section_alias": "Tasks",
+                    "type": 1,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "00000000-0000-0000-0000-000000000000",
+                        "section_alias": null,
+                        "card_type_id": "00000000-0000-0000-0000-000000000000",
+                        "card_type_alias": null,
+                        "target": null
+                    }
+                },
+                {
+                    "field_id": "5A34818B-9126-49D6-BF9D-9613A82AFBE7",
+                    "alias": "Controller",
+                    "section_alias": "Tasks",
+                    "type": 13,
+                    "max": 0,
+                    "is_dynamic": false,
+                    "is_extended": false,
+                    "is_new": false,
+                    "references": {
+                        "section_type_id": "DBC8AE9D-C1D2-4D5E-978B-339D22B32482",
+                        "section_alias": "Employees",
+                        "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
+                        "card_type_alias": "RefStaff",
+                        "target": "RefStaff.Employees"
+                    }
+                }
+            ]
+        }
+
+    }
+}
