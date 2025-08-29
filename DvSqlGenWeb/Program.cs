@@ -28,7 +28,7 @@ namespace DvSqlGenWeb
             string openAiModel = cfg["OpenAI:Model"] ?? "gpt-4o-mini";
             string openAiKey = cfg["OpenAI:ApiKey"] ?? "";
             double openAiTemp = double.TryParse(cfg["OpenAI:Temperature"], out var ot) ? ot : 0.1;
-            string embeddingModel = cfg["OpenAI:EmbeddingModel"] ?? "text-embedding-3-small";
+            string embeddingModel = /*cfg["OpenAI:EmbeddingModel"] ??*/ "nomic-embed-text:latest";
 
             // ----- сервисы -----
             builder.Services.AddRazorPages();

@@ -126,6 +126,7 @@ namespace DvSqlGenWeb.Services
                 ** from ***
                 join ** as **  WITH (NOLOCK)
                     on ** = **
+            - CardTaskList.Tasks не является конечным результатом, завершаем запрос до конца до CardTask.MainInfo
             """;
             return await llm.ChatAsync(systemPrompt, userPrompt: question, context: context, ct: ct);
         }

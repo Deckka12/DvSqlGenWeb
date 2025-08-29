@@ -2,6 +2,7 @@
     "sections": {
         "30EB9B87-822B-4753-9A50-A1825DCA1B74": {
             "alias": "MainInfo",
+            "alias_ru": "Основная информация",
             "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
             "card_type_alias": "CardDocument",
             "fields": [
@@ -604,6 +605,7 @@
         },
         "DBC8AE9D-C1D2-4D5E-978B-339D22B32482": {
             "alias": "Employees",
+            "alias_ru": "Сотрудники",
             "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
             "card_type_alias": "RefStaff",
             "fields": [
@@ -1410,6 +1412,7 @@
         },
         "1B1A44FB-1FB1-4876-83AA-95AD38907E24": {
             "alias": "Items",
+            "alias_ru": "Строка справочника",
             "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
             "card_type_alias": "RefBaseUniversal",
             "fields": [
@@ -1502,6 +1505,7 @@
         },
         "C8C71DEB-9D53-49E9-8499-95AAF8A94868": {
             "alias": "DocInfo",
+            "alias_ru": "Информация о документе",
             "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
             "card_type_alias": "CardDocument",
             "fields": [
@@ -2206,6 +2210,7 @@
         },
         "20D21193-9F7F-4B62-8D69-272E78E1D6A8": {
             "alias": "MainInfo",
+            "alias_ru": "Основная информация задания",
             "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
             "card_type_alias": "CardTask",
             "fields": [
@@ -3046,6 +3051,7 @@
         },
         "9BC6B0E9-A809-43F1-A27F-323A28D1B010": {
             "alias": "Tasks",
+            "alias_ru": "Список ссылок на задания",
             "card_type_id": "4F34CC37-85AC-4D15-B694-2950E7F61055",
             "card_type_alias": "CardTaskList",
             "fields": [

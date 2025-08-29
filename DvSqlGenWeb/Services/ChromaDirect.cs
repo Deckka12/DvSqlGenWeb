@@ -222,10 +222,11 @@ namespace DvSqlGenWeb.Services
             if (batch.Count == 0 || batch.Any(string.IsNullOrEmpty))
                 throw new ArgumentException("Батч пустой");
 
-            using var http = new HttpClient { BaseAddress = new Uri(_openAiBaseUrl) };
-            http.DefaultRequestHeaders.Authorization =
-                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _openAiApiKey);
+            using var http = new HttpClient { BaseAddress = new Uri("http://localhost:11434") };
             http.DefaultRequestHeaders.Add("Accept", "application/json");
+            //http.DefaultRequestHeaders.Authorization =
+            //    new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _openAiApiKey);
+            //http.DefaultRequestHeaders.Add("Accept", "application/json");
 
             var payload = new { model = _embeddingModel, input = batch };
             var json = JsonSerializer.Serialize(payload);

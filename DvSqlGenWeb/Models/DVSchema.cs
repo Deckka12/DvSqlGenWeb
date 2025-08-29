@@ -9,7 +9,8 @@ namespace DvSqlGenWeb.Models
 
     public class Section
     {
-        public string alias { get; set; } = "";             // алиас секции (например, MainInfo)
+        public string alias { get; set; } = "";
+        public string alias_ru { get; set; } = "";// алиас секции (например, MainInfo)
         public string card_type_id { get; set; } = "";      // Guid типа карточки
         public string card_type_alias { get; set; } = "";   // алиас типа карточки (напр., CardDocument)
         public List<Field> fields { get; set; } = new();    // список полей секции
