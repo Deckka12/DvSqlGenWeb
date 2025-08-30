@@ -106,6 +106,7 @@ namespace DvSqlGenWeb.Services
 
             var phrases = SearchRouter.SplitToPhrases(question);
             var conditions = new List<Dictionary<string, object>>();
+            phrases = phrases.Where(x => x.Length > 2).ToList();
 
             foreach (var p in phrases)
             {
@@ -134,9 +135,45 @@ namespace DvSqlGenWeb.Services
                 };
             }
 
-            var relevant = await chroma.QueryAsync(_collectionId!, question, n: _topK, where: where);
+            Dictionary<string, object>? whereDoc = null;
+            if (phrases.Count > 0)
+            {
+                whereDoc = new Dictionary<string, object>
+                {
+                    ["$or"] = phrases.Select(p =>
+                        new Dictionary<string, object>
+                        {
+                            ["$contains"] = p.ToLower()
+                        }).ToList<object>()
+                };
+            }
 
-            var context = string.Join("\n---\n", relevant.Take(Math.Min(_topK, relevant.Count)));
+            var relevant = await chroma.QueryAsync(_collectionId!, question, n: _topK, where: where, where_doc: whereDoc);
+
+            //TODO: надо подумать, может стоит убрать синонимы для контекста, дабы зачем они модели. Тестриуем!!
+            var result = relevant.Select(r =>
+            {
+                var lines = r.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                var table = lines.FirstOrDefault(l => l.StartsWith("TABLE:", StringComparison.Ordinal));
+                var section = lines.FirstOrDefault(l => l.StartsWith("SECTION:", StringComparison.Ordinal));
+                return (lines, table, section);
+                }).Where(x => x.table is not null && x.section is not null)
+                .GroupBy(x => (x.table!, x.section!))
+                .Select(g =>
+                {
+                
+                    var fields = g.SelectMany(x => x.lines.Where(l => l.StartsWith("- ", StringComparison.Ordinal)))
+                                  .Distinct();
+                    var synonyms = g.SelectMany(x => x.lines.Where(l => l.StartsWith("SYNONYMS:", StringComparison.Ordinal)))
+                                    .Distinct(); 
+                    return string.Join('\n',
+                        new[] { g.Key.Item1, g.Key.Item2, "FIELDS:" }
+                            .Concat(fields)
+                            .Concat(synonyms));
+            }).ToList();
+
+
+            var context = string.Join("\n---\n", result.Take(_topK));
 
             var systemPrompt = """
             Ты — генератор SQL для DocsVision.

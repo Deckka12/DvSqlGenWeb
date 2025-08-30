@@ -180,8 +180,7 @@ namespace DvSqlGenWeb.Services
                 string query,
                 int n = 8,
                 Dictionary<string, object>? where = null,
-                string mustContain1 = null,
-                string mustContain2 = null)
+                Dictionary<string, object>? where_doc = null)
         {
             if (string.IsNullOrWhiteSpace(collectionId))
                 throw new ArgumentException("Коллекция пустая", nameof(collectionId));
@@ -192,18 +191,18 @@ namespace DvSqlGenWeb.Services
             if (queryEmbedding == null || queryEmbedding.Count != 1 || queryEmbedding[0] == null || queryEmbedding[0].Length == 0)
                 throw new InvalidOperationException("Ошибка при поиске эмбиндинга.");
 
-            object whereDocument = new Dictionary<string, object>();
-            var clauses = new List<Dictionary<string, object>>();
-            if (!string.IsNullOrWhiteSpace(mustContain1))
-                clauses.Add(new() { { "$contains", mustContain1 } });
+            //object whereDocument = new Dictionary<string, object>();
+            //var clauses = new List<Dictionary<string, object>>();
+            //if (!string.IsNullOrWhiteSpace(mustContain1))
+            //    clauses.Add(new() { { "$contains", mustContain1 } });
 
-            if (!string.IsNullOrWhiteSpace(mustContain2))
-                clauses.Add(new() { { "$contains", mustContain2 } });
+            //if (!string.IsNullOrWhiteSpace(mustContain2))
+            //    clauses.Add(new() { { "$contains", mustContain2 } });
 
-            if (clauses.Count == 1)
-                whereDocument = clauses[0];
-            else if (clauses.Count > 1)
-                whereDocument = new Dictionary<string, object> { { "$and", clauses } };
+            //if (clauses.Count == 1)
+            //    whereDocument = clauses[0];
+            //else if (clauses.Count > 1)
+            //    whereDocument = new Dictionary<string, object> { { "$and", clauses } };
 
             var payload = new Dictionary<string, object>
             {
@@ -211,11 +210,11 @@ namespace DvSqlGenWeb.Services
                 ["n_results"] = Math.Max(3, n),
                 ["include"] = new[] { "documents", "distances", "metadatas" }
             };
-            if (where != null)
-                payload["where"] = where;
+            //if (where != null)
+            //    payload["where"] = where;
 
-            if (whereDocument != null)
-                payload["where_document"] = whereDocument;
+            if (where_doc != null)
+                payload["where_document"] = where_doc;
 
             var payloadJson = System.Text.Json.JsonSerializer.Serialize(payload, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
             Console.WriteLine("=== PAYLOAD TO CHROMA ===");
