@@ -21,7 +21,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "deliverydate"
+                    ]
                 },
                 {
                     "field_id": "FDC1B0D7-9684-417D-9B72-049AEE1E4339",
@@ -38,7 +41,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "senderstaffemployee"
+                    ]
                 },
                 {
                     "field_id": "DED78135-0444-4A4E-A04D-0B3186F8C893",
@@ -55,7 +61,14 @@
                         "card_type_id": "4F34CC37-85AC-4D15-B694-2950E7F61055",
                         "card_type_alias": "CardTaskList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "task",
+                        "tasks",
+                        "задание",
+                        "задания",
+                        "задачи"
+                    ]
                 },
                 {
                     "field_id": "CB760041-1D1F-4FB4-BB25-0E60C597E972",
@@ -72,7 +85,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "wassent"
+                    ]
                 },
                 {
                     "field_id": "32412014-D6AF-476F-9F84-1B3C8C25699A",
@@ -89,7 +105,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "versioningtype"
+                    ]
                 },
                 {
                     "field_id": "DFA12A81-2EB4-415F-B46F-1DE5660D963E",
@@ -106,7 +125,10 @@
                         "card_type_id": "CA25A38B-C65E-4A97-94EE-8E5067A6BECA",
                         "card_type_alias": "CardSignatureList",
                         "target": "CardSignatureList.Signatures"
-                    }
+                    },
+                    "synonyms": [
+                        "signaturelist"
+                    ]
                 },
                 {
                     "field_id": "04561717-4469-4D78-BF5A-29DD0BFEB62E",
@@ -123,7 +145,10 @@
                         "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
                         "card_type_alias": "CardDocument",
                         "target": "CardDocument.Numbers"
-                    }
+                    },
+                    "synonyms": [
+                        "regnumberprovisional"
+                    ]
                 },
                 {
                     "field_id": "07447513-3B61-4CBF-8758-2FD7B0BA6858",
@@ -140,7 +165,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.AlternateHierarchy"
-                    }
+                    },
+                    "synonyms": [
+                        "acquaintancegroup"
+                    ]
                 },
                 {
                     "field_id": "FEF2DC80-3EF3-4792-8100-335BAA421189",
@@ -157,7 +185,11 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "numberofsheet",
+                        "numberofsheets"
+                    ]
                 },
                 {
                     "field_id": "547D7B50-4664-4C0F-B51F-3438EFBC9C4B",
@@ -174,7 +206,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "caseid"
+                    ]
                 },
                 {
                     "field_id": "A4914FF1-AAB2-4373-8880-36B271164B47",
@@ -191,7 +226,12 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "content",
+                        "содержание",
+                        "текст"
+                    ]
                 },
                 {
                     "field_id": "1F9C6D5F-7CCE-47A5-A8C6-53CEAA5947E4",
@@ -208,7 +248,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "statusid"
+                    ]
                 },
                 {
                     "field_id": "F27041F0-E1A4-48CF-8ABF-5E02D6879001",
@@ -225,7 +268,10 @@
                         "card_type_id": "8F704E7D-A123-4917-94B4-F3B851F193B2",
                         "card_type_alias": "RefKinds",
                         "target": "RefKinds.CardKinds"
-                    }
+                    },
+                    "synonyms": [
+                        "kind"
+                    ]
                 },
                 {
                     "field_id": "02DDB095-B817-4F81-84E4-637F667E9BBE",
@@ -242,7 +288,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "createdbytrigger"
+                    ]
                 },
                 {
                     "field_id": "45B3B115-6615-44C5-977A-64404221BA8F",
@@ -259,7 +308,10 @@
                         "card_type_id": "C9B39BEF-1047-407B-9324-8EC00D64FBEE",
                         "card_type_alias": "CardReferenceList",
                         "target": "CardReferenceList.References"
-                    }
+                    },
+                    "synonyms": [
+                        "referencelist"
+                    ]
                 },
                 {
                     "field_id": "923927ED-89AA-44DD-9724-6C67879E60E7",
@@ -276,7 +328,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "registrationplaceid"
+                    ]
                 },
                 {
                     "field_id": "49639A33-50E9-494F-8673-77F41949076F",
@@ -293,7 +348,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "numberofsheetsappendix"
+                    ]
                 },
                 {
                     "field_id": "AAD9382B-DA08-4293-AA15-7BCA6849CDCD",
@@ -310,7 +368,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.AlternateHierarchy"
-                    }
+                    },
+                    "synonyms": [
+                        "workgroup"
+                    ]
                 },
                 {
                     "field_id": "AE8D5194-9879-4543-A029-7ECB9B7BD428",
@@ -327,7 +388,10 @@
                         "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
                         "card_type_alias": "CardDocument",
                         "target": "CardDocument.Numbers"
-                    }
+                    },
+                    "synonyms": [
+                        "regnumber"
+                    ]
                 },
                 {
                     "field_id": "AC21088C-28FC-4A67-9F68-805E89DB0B98",
@@ -344,7 +408,12 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "regdate",
+                        "дата регистрации",
+                        "регистрация"
+                    ]
                 },
                 {
                     "field_id": "7374638B-681A-40FF-B504-9823CFE6D4DA",
@@ -361,7 +430,10 @@
                         "card_type_id": "337CC874-BF87-4C70-A29B-F099F630B9F2",
                         "card_type_alias": "CardCategoryList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "categorylist"
+                    ]
                 },
                 {
                     "field_id": "7EDB78AB-7F54-4BDF-AE89-9D935925AF07",
@@ -378,7 +450,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "docproperty"
+                    ]
                 },
                 {
                     "field_id": "57E5E407-6FA9-41CD-A453-A0569F1428E8",
@@ -395,7 +470,11 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "vidoi",
+                        "vidois"
+                    ]
                 },
                 {
                     "field_id": "EA5B0CF9-9235-4ED2-AAD4-A68C6717125C",
@@ -412,7 +491,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Units"
-                    }
+                    },
+                    "synonyms": [
+                        "responsdepartment"
+                    ]
                 },
                 {
                     "field_id": "BD21C73E-6706-482B-8028-A7681CD15AC7",
@@ -429,7 +511,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "itemid"
+                    ]
                 },
                 {
                     "field_id": "C849EA39-49EB-4A3C-BC50-BA49CBEBF906",
@@ -446,7 +531,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "clerkid"
+                    ]
                 },
                 {
                     "field_id": "8C2F3AEF-D178-4245-B6DF-C809C7642779",
@@ -463,7 +551,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "name"
+                    ]
                 },
                 {
                     "field_id": "08FD0198-DCEA-4C16-8B5D-CC10761BE290",
@@ -480,7 +571,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "securityid"
+                    ]
                 },
                 {
                     "field_id": "EDE96327-87E7-4EDE-B012-E3AEE125A3B6",
@@ -497,7 +591,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "transferlog"
+                    ]
                 },
                 {
                     "field_id": "E96FB6B2-AC95-4817-878D-E3BDD6E525D9",
@@ -514,7 +611,10 @@
                         "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
                         "card_type_alias": "CardDocument",
                         "target": "CardDocument.Numbers"
-                    }
+                    },
+                    "synonyms": [
+                        "externalnumber"
+                    ]
                 },
                 {
                     "field_id": "FE57AC59-A298-4F9B-9C85-E85D771041E8",
@@ -531,7 +631,11 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "author",
+                        "автор"
+                    ]
                 },
                 {
                     "field_id": "2717F5F2-1DF5-4DD6-88B5-F2602CB8BB67",
@@ -548,7 +652,11 @@
                         "card_type_id": "A1D1A50B-8E1E-4116-A93A-684D95F50607",
                         "card_type_alias": "CardSurveyList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "survey",
+                        "surveys"
+                    ]
                 },
                 {
                     "field_id": "16305803-66C4-4236-9976-FC987405A983",
@@ -565,7 +673,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "registrar"
+                    ]
                 },
                 {
                     "field_id": "3138CDF0-FE06-4D0B-B113-FE4D9263FA87",
@@ -582,7 +693,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "deliverytypeid"
+                    ]
                 },
                 {
                     "field_id": "BFCBA74D-FBDD-4050-9FDE-FE6746D23150",
@@ -599,7 +713,10 @@
                         "card_type_id": "443F55F0-C8AB-4DD3-BCBD-5328C7C9D385",
                         "card_type_alias": "RefStates",
                         "target": "RefStates.States"
-                    }
+                    },
+                    "synonyms": [
+                        "state"
+                    ]
                 }
             ]
         },
@@ -624,7 +741,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "email"
+                    ]
                 },
                 {
                     "field_id": "77258AA6-C887-4899-8042-05DA986A9D3A",
@@ -641,7 +761,12 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "statu",
+                        "status",
+                        "статус"
+                    ]
                 },
                 {
                     "field_id": "3AA2DA76-05E5-4C56-BEA6-0A60BA6FE68F",
@@ -658,7 +783,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "importance"
+                    ]
                 },
                 {
                     "field_id": "1E832E93-8BB7-410F-A976-0B3FA330C45A",
@@ -675,7 +803,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "lockedfrom"
+                    ]
                 },
                 {
                     "field_id": "61D90DC1-9B0B-44FE-B370-0EE4D91BECD7",
@@ -692,7 +823,11 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "inactivestatu",
+                        "inactivestatus"
+                    ]
                 },
                 {
                     "field_id": "0505CF20-29A4-4EAA-A300-181830B994F1",
@@ -709,7 +844,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "manager"
+                    ]
                 },
                 {
                     "field_id": "5D3267F0-5A84-4BD4-957F-18E8D8C334A5",
@@ -726,7 +864,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "accountname"
+                    ]
                 },
                 {
                     "field_id": "4A17F46D-A641-4371-9FB0-1908653EDFBC",
@@ -743,7 +884,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "idcode"
+                    ]
                 },
                 {
                     "field_id": "C45D4014-2EFB-464A-AE86-19B8388080A9",
@@ -760,7 +904,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "fax"
+                    ]
                 },
                 {
                     "field_id": "E30FF7DE-6F15-4E3E-A700-1EEC306EC291",
@@ -777,7 +924,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "idissuedby"
+                    ]
                 },
                 {
                     "field_id": "6E2F4C3F-2648-4E51-8F97-1FCC9E41EDAC",
@@ -794,7 +944,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "accountsid"
+                    ]
                 },
                 {
                     "field_id": "0DFFE486-2BB6-4243-A3C5-207082B386AA",
@@ -811,7 +964,10 @@
                         "card_type_id": "DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2",
                         "card_type_alias": "FoldersCard",
                         "target": "FoldersCard.Folders"
-                    }
+                    },
+                    "synonyms": [
+                        "personalfolder"
+                    ]
                 },
                 {
                     "field_id": "FA92655C-CB78-40C6-9211-21FA5BE6F895",
@@ -828,7 +984,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "gender"
+                    ]
                 },
                 {
                     "field_id": "3194CA19-1A54-4B25-9C6B-25566171D935",
@@ -845,7 +1004,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "enddate"
+                    ]
                 },
                 {
                     "field_id": "6D2C4D49-1BFE-4268-888D-28D8658EEF7D",
@@ -862,7 +1024,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "sysaccountname"
+                    ]
                 },
                 {
                     "field_id": "396BE1D6-E996-434B-9D72-2B87D720DDE5",
@@ -879,7 +1044,11 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "comment",
+                        "comments"
+                    ]
                 },
                 {
                     "field_id": "6169BE39-4E60-4731-A1DB-2E9C87B282DA",
@@ -896,7 +1065,10 @@
                         "card_type_id": "DA86FABF-4DD7-4A86-B6FF-C58C24D12DE2",
                         "card_type_alias": "FoldersCard",
                         "target": "FoldersCard.Folders"
-                    }
+                    },
+                    "synonyms": [
+                        "delegatefolder"
+                    ]
                 },
                 {
                     "field_id": "3056F2B1-F28A-4357-9F79-3CC9057FB6A3",
@@ -913,7 +1085,10 @@
                         "card_type_id": "F31B9F60-F81F-4825-8216-FC3C1FF15222",
                         "card_type_alias": "CardCalendar",
                         "target": "CardCalendar.MainInfo"
-                    }
+                    },
+                    "synonyms": [
+                        "calendarid"
+                    ]
                 },
                 {
                     "field_id": "9352490E-D868-4D60-AD21-3D7D000E7C17",
@@ -930,7 +1105,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "ipphone"
+                    ]
                 },
                 {
                     "field_id": "10998756-06CC-40A7-8D36-4265FEC1AFD3",
@@ -947,7 +1125,10 @@
                         "card_type_id": "67F37CC6-EC55-4F12-92C0-EC0B0938B530",
                         "card_type_alias": "CardEmployee",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "cardemployeeid"
+                    ]
                 },
                 {
                     "field_id": "36EE4BAD-8A18-4696-A55B-47A2A53470FB",
@@ -964,7 +1145,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "lockedto"
+                    ]
                 },
                 {
                     "field_id": "76CF9965-E52B-4002-AC44-4CD58BDEE68F",
@@ -981,7 +1165,10 @@
                         "card_type_id": "8F704E7D-A123-4917-94B4-F3B851F193B2",
                         "card_type_alias": "RefKinds",
                         "target": "RefKinds.CardKinds"
-                    }
+                    },
+                    "synonyms": [
+                        "cardemployeekind"
+                    ]
                 },
                 {
                     "field_id": "7659A92C-47FD-46F3-92C2-5D9CE0CD833D",
@@ -998,7 +1185,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "clocknumber"
+                    ]
                 },
                 {
                     "field_id": "498A4756-7BBC-438F-B488-6CD7607CDEDD",
@@ -1015,7 +1205,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "adsnotsynchronize"
+                    ]
                 },
                 {
                     "field_id": "1110622A-0A6C-4708-B563-720E537227C4",
@@ -1032,7 +1225,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "synctag"
+                    ]
                 },
                 {
                     "field_id": "8A2C8120-08B8-4E51-98CA-75D5BDB0171A",
@@ -1049,7 +1245,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "middlename"
+                    ]
                 },
                 {
                     "field_id": "05A1908A-DB46-47D8-896C-76CAED1D3DDD",
@@ -1066,7 +1265,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "displaystring"
+                    ]
                 },
                 {
                     "field_id": "5EC20BC5-DF69-4FDC-BF4E-7D61D2E8AA4B",
@@ -1083,7 +1285,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "roomnumber"
+                    ]
                 },
                 {
                     "field_id": "64D2A6CD-385B-45DA-9A3F-7E79212A59F7",
@@ -1100,7 +1305,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "idnumber"
+                    ]
                 },
                 {
                     "field_id": "3CC218C8-AF1A-40A5-ACEF-7FACA0D570C7",
@@ -1117,7 +1325,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "cardemployeekindspecified"
+                    ]
                 },
                 {
                     "field_id": "E5A6D1A9-3DB1-4F01-B782-95798ED7A8D5",
@@ -1134,7 +1345,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Positions"
-                    }
+                    },
+                    "synonyms": [
+                        "position"
+                    ]
                 },
                 {
                     "field_id": "E5FAC918-DCA4-4FA9-8AEE-9CF77E35637F",
@@ -1151,7 +1365,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "notsearchable"
+                    ]
                 },
                 {
                     "field_id": "C93DE5AB-2974-48C5-A1CD-A09F38B300B1",
@@ -1168,7 +1385,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "lastname"
+                    ]
                 },
                 {
                     "field_id": "574A993D-56CD-4689-9326-ADAEDDABC07F",
@@ -1185,7 +1405,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "phone"
+                    ]
                 },
                 {
                     "field_id": "613BB493-F485-4E23-B669-C6623E12321C",
@@ -1202,7 +1425,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "notavailable"
+                    ]
                 },
                 {
                     "field_id": "905D4184-6692-4FBA-8ADC-C882E164AFCF",
@@ -1219,7 +1445,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "activeemployee"
+                    ]
                 },
                 {
                     "field_id": "38AB129D-7CB1-4884-AF0C-CBFEEC7337E8",
@@ -1236,7 +1465,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "mobilephone"
+                    ]
                 },
                 {
                     "field_id": "6A88C38E-7CDF-4DA0-A20D-CF16365B7A72",
@@ -1253,7 +1485,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "showaccountdialog"
+                    ]
                 },
                 {
                     "field_id": "B2C70F55-C1D9-4504-BBFE-CFB7B3BE0AF6",
@@ -1270,7 +1505,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "firstname"
+                    ]
                 },
                 {
                     "field_id": "4C89283B-8CDA-4DEB-9D05-DB8E069F0B13",
@@ -1287,7 +1525,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "isdefault"
+                    ]
                 },
                 {
                     "field_id": "8BFE4140-34A2-4E57-A66D-DCC04D231F36",
@@ -1304,7 +1545,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "askforkeycontainerpassword"
+                    ]
                 },
                 {
                     "field_id": "27B38BF0-8459-4FC0-A9AA-DCF14E3533A0",
@@ -1321,7 +1565,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "startdate"
+                    ]
                 },
                 {
                     "field_id": "9FE9BE41-4DC1-4CE9-AA54-E9CE4D5DB96B",
@@ -1338,7 +1585,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "showcertificatewindow"
+                    ]
                 },
                 {
                     "field_id": "25A6E1E4-5502-46F4-9704-F15BB8D78C48",
@@ -1355,7 +1605,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "usethinclient"
+                    ]
                 },
                 {
                     "field_id": "919EA91D-5E87-4553-9309-F5A8A31CC967",
@@ -1372,7 +1625,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "birthdate"
+                    ]
                 },
                 {
                     "field_id": "C41EE1FE-CAF4-4F2E-B578-F8497705A1F1",
@@ -1389,7 +1645,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "routingtype"
+                    ]
                 },
                 {
                     "field_id": "FF7248CB-C141-4C4B-8890-FA183BFEB3AF",
@@ -1406,7 +1665,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "homephone"
+                    ]
                 }
             ]
         },
@@ -1431,7 +1693,10 @@
                         "card_type_id": "E898C387-0162-4F37-A93C-13BAA07FF183",
                         "card_type_alias": "CardBaseUniversalItem",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "itemcard"
+                    ]
                 },
                 {
                     "field_id": "BC8EEAFC-F30D-452C-A4F0-28DBC112F850",
@@ -1448,7 +1713,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "order"
+                    ]
                 },
                 {
                     "field_id": "7B7D0814-757C-47F4-9A8C-513AEC816692",
@@ -1465,7 +1733,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "notavailable"
+                    ]
                 },
                 {
                     "field_id": "9276E092-DDB2-4F77-9155-722A0238CA8D",
@@ -1482,7 +1753,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "name"
+                    ]
                 },
                 {
                     "field_id": "8B45BC58-6831-40C1-B654-E0C0C6E36115",
@@ -1499,7 +1773,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "description"
+                    ]
                 }
             ]
         },
@@ -1524,7 +1801,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "duplicate"
+                    ]
                 },
                 {
                     "field_id": "C6F191CD-3C7E-4AAD-9054-120E32AB6369",
@@ -1541,7 +1821,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "doctype"
+                    ]
                 },
                 {
                     "field_id": "7F39CACB-AFF0-4DE2-B23E-1DC24EE32635",
@@ -1558,7 +1841,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "attachment"
+                    ]
                 },
                 {
                     "field_id": "D521D2AA-4533-4CB9-BEF2-28368AA2689D",
@@ -1575,7 +1861,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "departmentcode"
+                    ]
                 },
                 {
                     "field_id": "173FC8A6-F1EC-4CC1-9C5E-2FCFA4C38231",
@@ -1592,7 +1881,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "branchcode"
+                    ]
                 },
                 {
                     "field_id": "3D0C05FB-F9FC-4BF6-9088-3A54D9B9347C",
@@ -1609,7 +1901,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "printformfileid"
+                    ]
                 },
                 {
                     "field_id": "609BE3D7-DA80-46E3-B93E-3E935DCE1CFA",
@@ -1626,7 +1921,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "controller"
+                    ]
                 },
                 {
                     "field_id": "A88610FB-C92A-420D-99B0-3FFD095AC7AF",
@@ -1643,7 +1941,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "responsibleperformerphone"
+                    ]
                 },
                 {
                     "field_id": "3C013C98-A3AB-496D-A7EC-42FDFB07EF82",
@@ -1660,7 +1961,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "codedocumenttype"
+                    ]
                 },
                 {
                     "field_id": "A22E36C8-4333-4EFD-8771-48D389E25F9C",
@@ -1677,7 +1981,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "signtype"
+                    ]
                 },
                 {
                     "field_id": "0F213D3C-5698-4646-AD05-52B9A4DF0654",
@@ -1694,7 +2001,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "template"
+                    ]
                 },
                 {
                     "field_id": "9A9B22F5-C037-4535-9156-583B278C48BC",
@@ -1711,7 +2021,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "sendingkind"
+                    ]
                 },
                 {
                     "field_id": "3985A278-7DF4-4001-ACB3-584C9A2A0263",
@@ -1728,7 +2041,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "createdfromcontractbybutton"
+                    ]
                 },
                 {
                     "field_id": "ABBD2750-68E6-472A-BB5E-5B425DA9155A",
@@ -1745,7 +2061,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "correctionnumberstring"
+                    ]
                 },
                 {
                     "field_id": "D2356E52-2AB3-4732-9135-5DF781EF6348",
@@ -1762,7 +2081,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "case"
+                    ]
                 },
                 {
                     "field_id": "81183CC9-C5C6-4461-A828-8A3BB518B8B9",
@@ -1779,7 +2101,10 @@
                         "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
                         "card_type_alias": "CardDocument",
                         "target": "CardDocument.Numbers"
-                    }
+                    },
+                    "synonyms": [
+                        "projectnumber"
+                    ]
                 },
                 {
                     "field_id": "6172C737-0DE3-4B44-A731-8FC55D787CB6",
@@ -1796,7 +2121,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "dateexecution"
+                    ]
                 },
                 {
                     "field_id": "EBD9387C-D987-4CDC-86AF-9661D9699F63",
@@ -1813,7 +2141,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "branchitem"
+                    ]
                 },
                 {
                     "field_id": "00BE28B0-292C-4B6C-B08A-A69A16EA79B6",
@@ -1830,7 +2161,11 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "addres",
+                        "address"
+                    ]
                 },
                 {
                     "field_id": "899EAA4B-0AF5-4067-AB92-AB4B7598039A",
@@ -1847,7 +2182,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "completiondate"
+                    ]
                 },
                 {
                     "field_id": "FA3B4A00-B8AF-4C8F-93A2-ADADC75087A9",
@@ -1864,7 +2202,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "autoreg"
+                    ]
                 },
                 {
                     "field_id": "8833D841-66D4-4DED-9E26-B0F84EA60E75",
@@ -1881,7 +2222,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "correctiondate"
+                    ]
                 },
                 {
                     "field_id": "35B46238-D2E6-4004-B9C6-BC7295B519E2",
@@ -1898,7 +2242,10 @@
                         "card_type_id": "B9F7BFD7-7429-455E-A3F1-94FFB569C794",
                         "card_type_alias": "CardDocument",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "ufd"
+                    ]
                 },
                 {
                     "field_id": "958769F7-DE56-48D3-BCC1-BCB49B7D4874",
@@ -1915,7 +2262,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "sfregdate"
+                    ]
                 },
                 {
                     "field_id": "1536975D-A5AC-4E6D-97B9-BF44AD110DCF",
@@ -1932,7 +2282,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "dockind"
+                    ]
                 },
                 {
                     "field_id": "C31DC551-5DAE-45B2-BB20-C0A0F45EFD18",
@@ -1949,7 +2302,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "publicidentifier"
+                    ]
                 },
                 {
                     "field_id": "EE8926F3-850A-4FEE-9723-C2570D6EE31D",
@@ -1966,7 +2322,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Units"
-                    }
+                    },
+                    "synonyms": [
+                        "department"
+                    ]
                 },
                 {
                     "field_id": "6EB94316-2D8A-48E1-A8D6-C70EEAB26E7E",
@@ -1983,7 +2342,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "registrationonly"
+                    ]
                 },
                 {
                     "field_id": "8AF635F8-DF1B-49EF-9D7A-C75220E2B9A0",
@@ -2000,7 +2362,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "doctemplate"
+                    ]
                 },
                 {
                     "field_id": "E1F67632-5CD2-4CB5-8185-D048337F57DB",
@@ -2017,7 +2382,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "sendingtype"
+                    ]
                 },
                 {
                     "field_id": "A3672B70-6316-4CBF-BFEB-D0A49FBAF6FF",
@@ -2034,7 +2402,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "iteratively"
+                    ]
                 },
                 {
                     "field_id": "CAC0AC61-5D5D-47B4-8AEA-D47180470AEF",
@@ -2051,7 +2422,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "valid"
+                    ]
                 },
                 {
                     "field_id": "6B51E020-F220-47EB-AFDA-D79104B0868E",
@@ -2068,7 +2442,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "typeofexecution"
+                    ]
                 },
                 {
                     "field_id": "CF930BD2-7C18-4654-99B8-D8F525DA5798",
@@ -2085,7 +2462,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "must_registration"
+                    ]
                 },
                 {
                     "field_id": "40A46F00-A9A8-49C8-87C2-E0204A46C30E",
@@ -2102,7 +2482,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "deliverytype"
+                    ]
                 },
                 {
                     "field_id": "B29D979B-54ED-4C6E-AF90-E49344884D80",
@@ -2119,7 +2502,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "stamp"
+                    ]
                 },
                 {
                     "field_id": "F6957DBB-AD80-45F6-AF3B-E6276DBB8779",
@@ -2136,7 +2522,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "controllabel"
+                    ]
                 },
                 {
                     "field_id": "B9104BBA-3B1C-4F7D-B77D-EC40D152432D",
@@ -2153,7 +2542,11 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "isobjectofmutualsettlement",
+                        "isobjectofmutualsettlements"
+                    ]
                 },
                 {
                     "field_id": "F8474B6E-37DE-458E-ADA5-EED9130EE74F",
@@ -2170,7 +2563,13 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Units"
-                    }
+                    },
+                    "synonyms": [
+                        "branch",
+                        "отделение",
+                        "подразделение",
+                        "филиал"
+                    ]
                 },
                 {
                     "field_id": "E27804F6-CBFD-4D7E-8BDC-F5EBD3B75A5C",
@@ -2187,7 +2586,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "dateexecutioncompletion"
+                    ]
                 },
                 {
                     "field_id": "AFB524AC-E1DA-40A1-9A1C-FC1778D15A24",
@@ -2204,7 +2606,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "sfnumberstring"
+                    ]
                 }
             ]
         },
@@ -2229,7 +2634,10 @@
                         "card_type_id": "443F55F0-C8AB-4DD3-BCBD-5328C7C9D385",
                         "card_type_alias": "RefStates",
                         "target": "RefStates.States"
-                    }
+                    },
+                    "synonyms": [
+                        "state"
+                    ]
                 },
                 {
                     "field_id": "F5C843C0-5CE1-4727-81BF-0C764A43243B",
@@ -2246,7 +2654,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "name"
+                    ]
                 },
                 {
                     "field_id": "E129CAD7-C501-498A-9AE0-0F9D21C45238",
@@ -2263,7 +2674,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.AlternateHierarchy"
-                    }
+                    },
+                    "synonyms": [
+                        "workgroup"
+                    ]
                 },
                 {
                     "field_id": "0C8C4063-90B7-465E-809A-10EA68B98F3F",
@@ -2280,7 +2694,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "enddateactual"
+                    ]
                 },
                 {
                     "field_id": "0BBEB79A-D09E-4A70-880C-195F3F44E625",
@@ -2297,7 +2714,10 @@
                         "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
                         "card_type_alias": "CardTask",
                         "target": "CardTask.CompletionOptions"
-                    }
+                    },
+                    "synonyms": [
+                        "completionresult"
+                    ]
                 },
                 {
                     "field_id": "F9C788D5-5A6B-4882-8D6A-1B7D92B5EF36",
@@ -2314,7 +2734,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "oncontrol"
+                    ]
                 },
                 {
                     "field_id": "491BD2E0-D32B-4E4C-9537-1F52B7B091EB",
@@ -2331,7 +2754,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "canceldelegationuser"
+                    ]
                 },
                 {
                     "field_id": "40411B9E-2ED8-4EDB-975A-1F66E6DA93E5",
@@ -2348,7 +2774,11 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "author",
+                        "автор"
+                    ]
                 },
                 {
                     "field_id": "C487CB04-40A3-43BA-BC68-2B03773F6823",
@@ -2365,7 +2795,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "laboriousnessactual"
+                    ]
                 },
                 {
                     "field_id": "B8BD297D-596B-481A-8B97-2D5FA6E349B6",
@@ -2382,7 +2815,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "completeduser"
+                    ]
                 },
                 {
                     "field_id": "000C580B-51A3-4284-842A-2F3B80BAE95D",
@@ -2399,7 +2835,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "controller"
+                    ]
                 },
                 {
                     "field_id": "BB80F3DD-5735-401A-B3C5-3112E8E6C358",
@@ -2416,7 +2855,11 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "laboriousnes",
+                        "laboriousness"
+                    ]
                 },
                 {
                     "field_id": "3F049BB2-5C86-4C19-ABC8-32A642F225D3",
@@ -2433,7 +2876,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "percentcompleted"
+                    ]
                 },
                 {
                     "field_id": "3A1B3C40-01AB-45DE-BACC-3FAD0E241C13",
@@ -2450,7 +2896,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "priority"
+                    ]
                 },
                 {
                     "field_id": "908221FC-01B4-42BB-A6E3-426793DF1786",
@@ -2467,7 +2916,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "starttaskdate"
+                    ]
                 },
                 {
                     "field_id": "A4B4AC01-6415-432A-A182-44D6E8A0DDDE",
@@ -2484,7 +2936,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "enddatebeforepostponement"
+                    ]
                 },
                 {
                     "field_id": "F3B563B2-86B0-4A6C-AE73-453CDD0F36AB",
@@ -2501,7 +2956,10 @@
                         "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
                         "card_type_alias": "CardTask",
                         "target": "CardTask.MainInfo"
-                    }
+                    },
+                    "synonyms": [
+                        "responsibletaskid"
+                    ]
                 },
                 {
                     "field_id": "77817B4F-C98C-4BEB-8FF7-4AB608B3F207",
@@ -2518,7 +2976,10 @@
                         "card_type_id": "065E13F8-4E13-4E47-9E2A-A5F86E6439AA",
                         "card_type_alias": "CardFileList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "reconcilefilelist"
+                    ]
                 },
                 {
                     "field_id": "034A0CFD-6BDD-4704-8B2A-4F5A5D90FF08",
@@ -2535,7 +2996,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "requestedenddate"
+                    ]
                 },
                 {
                     "field_id": "4D87C316-DAB3-4A9D-965E-55991B20F12D",
@@ -2552,7 +3016,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "formanager"
+                    ]
                 },
                 {
                     "field_id": "F30DFD0D-C51F-4940-A317-55F11F0A40A0",
@@ -2569,7 +3036,10 @@
                         "card_type_id": "4538149D-1FC7-4D41-A104-890342C6B4F8",
                         "card_type_alias": "RefBaseUniversal",
                         "target": "RefBaseUniversal.Items"
-                    }
+                    },
+                    "synonyms": [
+                        "kindcontrol"
+                    ]
                 },
                 {
                     "field_id": "10576EA7-1AB2-4F84-B0FF-56AE23C75755",
@@ -2586,7 +3056,10 @@
                         "card_type_id": "CA25A38B-C65E-4A97-94EE-8E5067A6BECA",
                         "card_type_alias": "CardSignatureList",
                         "target": "CardSignatureList.Signatures"
-                    }
+                    },
+                    "synonyms": [
+                        "signaturelist"
+                    ]
                 },
                 {
                     "field_id": "6E37BAD7-865A-430F-9C99-57E970F99D14",
@@ -2603,7 +3076,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "createdbytrigger"
+                    ]
                 },
                 {
                     "field_id": "931BBCED-9BCF-4382-93C4-5FD8748E61D4",
@@ -2620,7 +3096,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "reminderdate"
+                    ]
                 },
                 {
                     "field_id": "87760C58-3D85-46C7-8EC1-62534399A22B",
@@ -2637,7 +3116,10 @@
                         "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
                         "card_type_alias": "CardTask",
                         "target": "CardTask.Numbers"
-                    }
+                    },
+                    "synonyms": [
+                        "number"
+                    ]
                 },
                 {
                     "field_id": "597054CB-A22B-4A6C-B9F0-6402FFC76694",
@@ -2654,7 +3136,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "startdate"
+                    ]
                 },
                 {
                     "field_id": "CF90A281-A9C2-43F6-8675-67C154389EE6",
@@ -2671,7 +3156,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "reminder"
+                    ]
                 },
                 {
                     "field_id": "3ED8C205-465B-482F-A802-691D4699DA9B",
@@ -2688,7 +3176,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "requiresacceptance"
+                    ]
                 },
                 {
                     "field_id": "CEEB9FD1-2308-41A0-A0E1-6C6ACC245C62",
@@ -2705,7 +3196,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "report"
+                    ]
                 },
                 {
                     "field_id": "211D47C4-D097-4E04-AE7F-6EC6EAF628AA",
@@ -2722,7 +3216,10 @@
                         "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
                         "card_type_alias": "CardTask",
                         "target": "CardTask.MainInfo"
-                    }
+                    },
+                    "synonyms": [
+                        "parenttask"
+                    ]
                 },
                 {
                     "field_id": "9E23DEC2-83E7-41BF-9E1A-6F182ADFA166",
@@ -2739,7 +3236,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "startdateactual"
+                    ]
                 },
                 {
                     "field_id": "59AB5278-FEE2-4CA6-9DEF-8534F96814C5",
@@ -2756,7 +3256,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "startdatebeforepostponement"
+                    ]
                 },
                 {
                     "field_id": "E44EB4F2-7AF0-4541-9374-880ADAB97BF2",
@@ -2773,7 +3276,10 @@
                         "card_type_id": "065E13F8-4E13-4E47-9E2A-A5F86E6439AA",
                         "card_type_alias": "CardFileList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "additionalfilelist"
+                    ]
                 },
                 {
                     "field_id": "465C4F78-3944-4D8F-8DAE-8EE1CDEE74FA",
@@ -2790,7 +3296,10 @@
                         "card_type_id": "C9B39BEF-1047-407B-9324-8EC00D64FBEE",
                         "card_type_alias": "CardReferenceList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "referencelist"
+                    ]
                 },
                 {
                     "field_id": "B6B1A3C4-5B98-4916-8C82-8F9A18DFB647",
@@ -2807,7 +3316,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "executionstopped"
+                    ]
                 },
                 {
                     "field_id": "A43EC818-2D68-45AA-B235-991CDD97367D",
@@ -2824,7 +3336,10 @@
                         "card_type_id": "8F704E7D-A123-4917-94B4-F3B851F193B2",
                         "card_type_alias": "RefKinds",
                         "target": "RefKinds.CardKinds"
-                    }
+                    },
+                    "synonyms": [
+                        "kind"
+                    ]
                 },
                 {
                     "field_id": "19171AF3-F135-420B-8ADF-9AD400332305",
@@ -2841,7 +3356,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "durationactual"
+                    ]
                 },
                 {
                     "field_id": "1CBA5860-EC5B-409F-B876-A0399F9CFD76",
@@ -2858,7 +3376,10 @@
                         "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
                         "card_type_alias": "CardTask",
                         "target": "CardTask.Delegates"
-                    }
+                    },
+                    "synonyms": [
+                        "delegate"
+                    ]
                 },
                 {
                     "field_id": "36E13E4E-25C2-4D07-ADF6-A2E634CAFE46",
@@ -2875,7 +3396,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "responsibletaskperformerid"
+                    ]
                 },
                 {
                     "field_id": "62823E7F-ECA8-4351-B94E-ACC6CC6B1DC9",
@@ -2892,7 +3416,10 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "rejecteduser"
+                    ]
                 },
                 {
                     "field_id": "97237678-0112-498A-A371-B1DBBFA295E1",
@@ -2909,7 +3436,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "postponementcount"
+                    ]
                 },
                 {
                     "field_id": "6769C313-61DD-4A8C-A0E4-B602C3F925C9",
@@ -2926,7 +3456,10 @@
                         "card_type_id": "4F34CC37-85AC-4D15-B694-2950E7F61055",
                         "card_type_alias": "CardTaskList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "childtasklist"
+                    ]
                 },
                 {
                     "field_id": "1E3A005B-AD5C-4AE8-B6A0-B82975E6875A",
@@ -2943,7 +3476,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "controldate"
+                    ]
                 },
                 {
                     "field_id": "8922D083-4FE1-44B1-8806-B9CC3BACB724",
@@ -2960,7 +3496,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "enddate"
+                    ]
                 },
                 {
                     "field_id": "2D3FE8E1-75CF-4029-87E0-BAEBC0F42D62",
@@ -2977,7 +3516,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "isoverdue"
+                    ]
                 },
                 {
                     "field_id": "6A2DB374-BE34-4270-BD81-C06E0FBF48A1",
@@ -2994,7 +3536,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "outlooktask"
+                    ]
                 },
                 {
                     "field_id": "20251AF3-A329-447A-B36D-CFE51D706D60",
@@ -3011,7 +3556,12 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "content",
+                        "содержание",
+                        "текст"
+                    ]
                 },
                 {
                     "field_id": "F8BF8AB7-78F0-4E68-AF7F-D168B6988021",
@@ -3028,7 +3578,11 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "createmessage",
+                        "createmessages"
+                    ]
                 },
                 {
                     "field_id": "3BF90051-2E2B-42D1-B00A-E6E067C3072C",
@@ -3045,7 +3599,10 @@
                         "card_type_id": "065E13F8-4E13-4E47-9E2A-A5F86E6439AA",
                         "card_type_alias": "CardFileList",
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "readonlyfilelist"
+                    ]
                 }
             ]
         },
@@ -3070,7 +3627,11 @@
                         "card_type_id": "C7B36F33-CDD4-4DA9-8444-600FE14111E4",
                         "card_type_alias": "CardTask",
                         "target": "CardTask.MainInfo"
-                    }
+                    },
+                    "synonyms": [
+                        "task",
+                        "задание"
+                    ]
                 },
                 {
                     "field_id": "48D09A1B-640F-4DA1-8A9B-670D8D06EC54",
@@ -3087,7 +3648,10 @@
                         "card_type_id": "00000000-0000-0000-0000-000000000000",
                         "card_type_alias": null,
                         "target": null
-                    }
+                    },
+                    "synonyms": [
+                        "oncontrol"
+                    ]
                 },
                 {
                     "field_id": "5A34818B-9126-49D6-BF9D-9613A82AFBE7",
@@ -3104,10 +3668,12 @@
                         "card_type_id": "6710B92A-E148-4363-8A6F-1AA0EB18936C",
                         "card_type_alias": "RefStaff",
                         "target": "RefStaff.Employees"
-                    }
+                    },
+                    "synonyms": [
+                        "controller"
+                    ]
                 }
             ]
         }
-
     }
 }

@@ -98,10 +98,41 @@ namespace DvSqlGenWeb.Services
 
             var dict = SearchDictionary.FromJsonFile(_routerJsonPath);
 
-            var targets = SearchRouter.DetectTargets(question, dict);
+            //var targets = SearchRouter.DetectTargets(question, dict);
+            //var (targets, cleanedText) = SearchRouter.DetectTargetsAndClean(question, dict);
+            //Dictionary<string, object>? where = null;
+            //if (targets.Count > 0)
+            //    where = SearchRouter.BuildChromaWhereV1(targets, "cardType", "section");
+
+            var phrases = SearchRouter.SplitToPhrases(question);
+            var conditions = new List<Dictionary<string, object>>();
+
+            foreach (var p in phrases)
+            {
+                // Условие по самому полю
+                conditions.Add(new Dictionary<string, object>
+                {
+                    ["Field"] = p.ToLower()
+                });
+
+                // TODO: научить делать поиск по массиву
+                //conditions.Add(new Dictionary<string, object>
+                //{
+                //    ["Synonyms"] = new Dictionary<string, object>
+                //    {
+                //        ["$contains"] = p.ToLower()
+                //    }
+                //});
+            }
+
             Dictionary<string, object>? where = null;
-            if (targets.Count > 0)
-                where = SearchRouter.BuildChromaWhereV1(targets, "cardType", "section");
+            if (conditions.Count > 0)
+            {
+                where = new Dictionary<string, object>
+                {
+                    ["$or"] = conditions
+                };
+            }
 
             var relevant = await chroma.QueryAsync(_collectionId!, question, n: _topK, where: where);
 
@@ -149,8 +180,26 @@ namespace DvSqlGenWeb.Services
             var schema = JsonSerializer.Deserialize<DVSchema>(json) ?? new DVSchema();
 
             var chunks = ChunkBuilder.BuildChunks(schema);
-            await chroma.UpsertAsync(_collectionId!,
-                chunks.Select((c, i) =>($"doc_{i:D6}",  c.Content,  c.CardType,  c.SectionAlias, c.SectionId)).ToList());
+
+            await chroma.UpsertAsync(
+                 _collectionId!,
+                 chunks.Select((c, i) => (
+                     Id: $"doc_{i:D6}",
+                     Text: c.Content,
+                     Metadata: new Dictionary<string, object>
+                     {
+
+                         ["CardType"] = c.CardType,
+                         ["SectionAlias"] = c.SectionAlias,
+                         ["SectionId"] = c.SectionId,
+                         ["Field"] = c.FieldAlias.ToLower(),
+                         ["Synonyms"] = schema.sections[c.SectionId].fields
+                                             .FirstOrDefault(f => f.alias == c.FieldAlias)?.synonyms
+                                             ?? new List<string>()
+                     }
+                 )).ToList()
+             );
+
 
             lock (_lock) 
                 _indexed = true;

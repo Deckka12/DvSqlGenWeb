@@ -8,10 +8,108 @@ namespace DvSqlGenWeb.Services
 {
     public static class ChunkBuilder
     {
-        public static List<(string CardType, string SectionAlias, string SectionId, string Content)> BuildChunks(DVSchema schema)
+        //public static List<(string CardType, string SectionAlias, string SectionId, string Content, string field)> BuildChunks(DVSchema schema)
+        //{
+        //    var result = new List<(string, string, string, string, string)>();
+        //    if (schema == null || schema.sections == null || schema.sections.Count == 0) 
+        //        return result;
+
+        //    var groupedByCard = schema.sections
+        //        .Where(kv => kv.Value != null)
+        //        .GroupBy(kv => SafeStr(kv.Value.card_type_alias, "Неизвестный тип"), StringComparer.OrdinalIgnoreCase)
+        //        .OrderBy(g => g.Key, StringComparer.OrdinalIgnoreCase);
+
+        //    foreach (var card in groupedByCard)
+        //    {
+        //        var first = card.First().Value;
+        //        var cardTypeAlias = card.Key;
+        //        var cardTypeId = SafeStr(first.card_type_id, "00000000-0000-0000-0000-000000000000");
+
+        //        foreach (var kv in card.OrderBy(kv => SafeStr(kv.Value.alias, ""), StringComparer.OrdinalIgnoreCase))
+        //        {
+        //            var sectionId = kv.Key;
+        //            var sec = kv.Value;
+        //            var sectionAlias = SafeStr(sec.alias, "Неизвестный тип");
+
+        //            var fields = CollectSectionColumns(sec);
+        //            if (fields.Count == 0) continue;
+
+        //            var ordered = OrderColumns(fields);
+
+        //            var sb = new StringBuilder();
+        //            sb.AppendLine("TABLE: dvtable_{" + sectionId + "}");
+        //            sb.AppendLine("CARD_TYPE: " + cardTypeAlias);
+        //            sb.AppendLine("CARD_TYPE_ID: " + cardTypeId);
+        //            sb.AppendLine("SECTION: " + sectionAlias);
+        //            sb.AppendLine("SECTION_ID: " + sectionId);
+        //            sb.AppendLine("COLUMNS:");
+        //            foreach (var f in ordered)
+        //            {
+        //                sb.AppendLine(FormatColumnLine(f));
+        //                var content = sb.ToString().TrimEnd();
+        //                result.Add((cardTypeAlias, sectionAlias, sectionId, content, f.alias));
+
+        //            }
+
+        //        }
+        //    }
+
+        //    return result;
+        //}
+
+        //public static List<(string CardType, string SectionAlias, string SectionId, string Content, string FieldAlias)> BuildChunks(DVSchema schema)
+        //{
+        //    var result = new List<(string, string, string, string, string)>();
+        //    if (schema?.sections == null || schema.sections.Count == 0)
+        //        return result;
+
+        //    var groupedByCard = schema.sections
+        //        .Where(kv => kv.Value != null)
+        //        .GroupBy(kv => SafeStr(kv.Value.card_type_alias, "Неизвестный тип"), StringComparer.OrdinalIgnoreCase)
+        //        .OrderBy(g => g.Key, StringComparer.OrdinalIgnoreCase);
+
+        //    foreach (var card in groupedByCard)
+        //    {
+        //        var first = card.First().Value;
+        //        var cardTypeAlias = card.Key;
+        //        var cardTypeId = SafeStr(first.card_type_id, "00000000-0000-0000-0000-000000000000");
+
+        //        foreach (var kv in card.OrderBy(kv => SafeStr(kv.Value.alias, ""), StringComparer.OrdinalIgnoreCase))
+        //        {
+        //            var sectionId = kv.Key;
+        //            var sec = kv.Value;
+        //            var sectionAlias = SafeStr(sec.alias, "Неизвестный тип");
+
+        //            var fields = CollectSectionColumns(sec);
+        //            if (fields.Count == 0) continue;
+
+        //            var ordered = OrderColumns(fields);
+
+        //            foreach (var f in ordered)
+        //            {
+        //                var sb = new StringBuilder();
+        //                sb.AppendLine($"TABLE: dvtable_{{{sectionId}}}");
+        //                //sb.AppendLine($"CARD_TYPE: {cardTypeAlias}");
+        //                //sb.AppendLine($"CARD_TYPE_ID: {cardTypeId}");
+        //                sb.AppendLine($"SECTION: {sectionAlias}");
+        //                //sb.AppendLine($"SECTION_ID: {sectionId}");
+        //                sb.AppendLine("FIELD:");
+        //                sb.AppendLine(FormatColumnLine(f));
+
+        //                var content = sb.ToString().TrimEnd();
+
+        //                result.Add((cardTypeAlias, sectionAlias, sectionId, content, f.alias));
+        //            }
+        //        }
+        //    }
+
+        //    return result;
+        //}
+
+        public static List<(string CardType, string SectionAlias, string SectionId, string Content, string FieldAlias)> BuildChunks(DVSchema schema)
         {
-            var result = new List<(string, string, string, string)>();
-            if (schema == null || schema.sections == null || schema.sections.Count == 0) 
+            var result = new List<(string, string, string, string, string)>();
+            if (schema?.sections == null || schema.sections.Count == 0)
                 return result;
 
             var groupedByCard = schema.sections
@@ -36,25 +134,30 @@ namespace DvSqlGenWeb.Services
 
                     var ordered = OrderColumns(fields);
 
-                    var sb = new StringBuilder();
-                    sb.AppendLine("TABLE: dvtable_{" + sectionId + "}");
-                    sb.AppendLine("CARD_TYPE: " + cardTypeAlias);
-                    sb.AppendLine("CARD_TYPE_ID: " + cardTypeId);
-                    sb.AppendLine("SECTION: " + sectionAlias);
-                    sb.AppendLine("SECTION_ID: " + sectionId);
-                    sb.AppendLine("COLUMNS:");
-                    foreach (var f in ordered) 
+                    foreach (var f in ordered)
+                    {
+                        var sb = new StringBuilder();
+                        sb.AppendLine($"TABLE: dvtable_{{{sectionId}}}");
+                        sb.AppendLine($"SECTION: {sectionAlias}");
+                        sb.AppendLine("FIELD:");
                         sb.AppendLine(FormatColumnLine(f));
 
-                    sb.AppendLine("Запросы:");
-                    var content = sb.ToString().TrimEnd();
-                    var chunkKey = cardTypeAlias + "::" + sectionAlias;
-                    result.Add((cardTypeAlias, sectionAlias, sectionId, content));
+                        if (f.synonyms != null && f.synonyms.Count > 0)
+                        {
+                            sb.AppendLine("SYNONYMS: " + string.Join(", ", f.synonyms));
+                        }
+
+                        var content = sb.ToString().TrimEnd();
+
+                        result.Add((cardTypeAlias, sectionAlias, sectionId, content, f.alias));
+                    }
                 }
             }
 
             return result;
         }
+
+
 
         private static string SafeStr(string s, string fallback) => string.IsNullOrWhiteSpace(s) ? fallback : s.Trim();
 

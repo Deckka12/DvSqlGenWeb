@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using DvSqlGenWeb.Models;
 
 namespace DvSqlGenWeb.Services
 {
@@ -17,7 +18,7 @@ namespace DvSqlGenWeb.Services
 
         public ChromaDirect(string baseUrl = "", string openAiBaseUrl = "", string openAiApiKey = "", string embeddingModel = "", HttpClient httpClient = null)
         {
-            _http = httpClient; 
+            _http = httpClient;
             _openAiBaseUrl = openAiBaseUrl;
             _openAiApiKey = openAiApiKey ?? throw new ArgumentNullException(nameof(openAiApiKey));
             _embeddingModel = string.IsNullOrWhiteSpace(embeddingModel) ? "text-embedding-3-small" : embeddingModel;
@@ -52,14 +53,52 @@ namespace DvSqlGenWeb.Services
             return createdDoc.RootElement.GetProperty("id").GetString();
         }
 
-        public async Task UpsertAsync(string collectionId, List<(string Id, string Text)> documents)
+        //public async Task UpsertAsync(string collectionId, List<(string Id, string Text)> documents)
+        //{
+        //    if (string.IsNullOrWhiteSpace(collectionId))
+        //        throw new ArgumentException("Коллекция не найдена или пустая", nameof(collectionId));
+
+        //    var clean = (documents ?? new List<(string Id, string Text)>())
+        //        .Where(d => !string.IsNullOrWhiteSpace(d.Id) && !string.IsNullOrWhiteSpace(d.Text))
+        //        .Select(d => (Id: d.Id.Trim(), Text: d.Text.Trim()))
+        //        .ToList();
+
+        //    if (clean.Count == 0)
+        //        throw new InvalidOperationException("Не валидный ид и текст");
+
+        //    var embeddings = await GetEmbeddingsAsync(clean.Select(d => d.Text));
+        //    if (embeddings == null || embeddings.Count != clean.Count || embeddings.Any(e => e == null || e.Length == 0))
+        //        throw new Exception("Эмбиндинг не валидный");
+
+        //    var payloadObj = new
+        //    {
+        //        ids = clean.Select(d => d.Id).ToArray(),
+        //        documents = clean.Select(d => d.Text).ToArray(),
+        //        embeddings = embeddings.ToArray(),
+        //        metadatas = clean.Select(_ => new Dictionary<string, object>()).ToArray()
+        //    };
+
+        //    var jsonPretty = JsonSerializer.Serialize(payloadObj, new JsonSerializerOptions { WriteIndented = true });
+        //    var content = new StringContent(jsonPretty, Encoding.UTF8, "application/json");
+        //    var response = await _http.PostAsync("/api/v1/collections/" + collectionId + "/upsert", content);
+
+        //    if (!response.IsSuccessStatusCode)
+        //    {
+        //        var error = await response.Content.ReadAsStringAsync();
+        //        throw new Exception("Обновление не успешное: " + response.StatusCode + "\n" + error);
+        //    }
+        //}
+
+        public async Task UpsertAsync(
+    string collectionId,
+    List<(string Id, string Text, Dictionary<string, object> Metadata)> documents)
         {
             if (string.IsNullOrWhiteSpace(collectionId))
                 throw new ArgumentException("Коллекция не найдена или пустая", nameof(collectionId));
 
-            var clean = (documents ?? new List<(string Id, string Text)>())
+            var clean = (documents ?? new List<(string Id, string Text, Dictionary<string, object>)>())
                 .Where(d => !string.IsNullOrWhiteSpace(d.Id) && !string.IsNullOrWhiteSpace(d.Text))
-                .Select(d => (Id: d.Id.Trim(), Text: d.Text.Trim()))
+                .Select(d => (Id: d.Id.Trim(), Text: d.Text.Trim(), Metadata: d.Metadata ?? new Dictionary<string, object>()))
                 .ToList();
 
             if (clean.Count == 0)
@@ -67,14 +106,14 @@ namespace DvSqlGenWeb.Services
 
             var embeddings = await GetEmbeddingsAsync(clean.Select(d => d.Text));
             if (embeddings == null || embeddings.Count != clean.Count || embeddings.Any(e => e == null || e.Length == 0))
-                throw new Exception("Эмбиндинг не валидный");
+                throw new Exception("Эмбеддинг не валидный");
 
             var payloadObj = new
             {
                 ids = clean.Select(d => d.Id).ToArray(),
                 documents = clean.Select(d => d.Text).ToArray(),
                 embeddings = embeddings.ToArray(),
-                metadatas = clean.Select(_ => new Dictionary<string, object>()).ToArray()
+                metadatas = clean.Select(d => d.Metadata).ToArray()
             };
 
             var jsonPretty = JsonSerializer.Serialize(payloadObj, new JsonSerializerOptions { WriteIndented = true });
@@ -88,7 +127,8 @@ namespace DvSqlGenWeb.Services
             }
         }
 
-        public async Task UpsertAsync( string collectionId, List<(string Id, string Text, string CardType, string Section, string SectionId)> documents)
+
+        public async Task UpsertAsync(string collectionId, List<(string Id, string Text, string CardType, string Section, string SectionId, string field)> documents)
         {
             if (string.IsNullOrWhiteSpace(collectionId))
                 throw new ArgumentException("Коллекция не найдена или пустая", nameof(collectionId));
@@ -100,26 +140,28 @@ namespace DvSqlGenWeb.Services
                             Text: d.Text.Trim(),
                             CardType: d.CardType?.Trim() ?? "",
                             Section: d.Section?.Trim() ?? "",
-                            SectionId: d.SectionId?.Trim() ?? ""
+                            SectionId: d.SectionId?.Trim() ?? "",
+                            Field: d.field?.Trim() ?? ""
                         )).ToList();
 
             if (clean.Count == 0)
                 throw new InvalidOperationException("Нет допустимых пар (Id, Text, CardType, Section) для обновления.");
 
-            var embeddings = await GetEmbeddingsAsync(clean.Select(d => d.Text));
+            var embeddings = await GetEmbeddingsAsync(clean.Select(d => d.Text + " " + d.Field));
             if (embeddings == null || embeddings.Count() != clean.Count || embeddings.Any(e => e == null || e.Length == 0))
                 throw new Exception("Вложения недействительны.");
 
             var payloadObj = new
             {
                 ids = clean.Select(d => d.Id).ToArray(),
-                documents = clean.Select(d => d.Text).ToArray(),
+                documents = clean.Select(d => d.Text + d.Field).ToArray(),
                 embeddings = embeddings.ToArray(),
                 metadatas = clean.Select(d => new Dictionary<string, object>
                 {
                     ["cardType"] = d.CardType,
                     ["section"] = d.Section,
-                    ["sectionId"] = d.SectionId
+                    ["sectionId"] = d.SectionId,
+                    ["Field"] = d.Field
                 }).ToArray()
             };
 
@@ -141,26 +183,26 @@ namespace DvSqlGenWeb.Services
                 string mustContain1 = null,
                 string mustContain2 = null)
         {
-            if (string.IsNullOrWhiteSpace(collectionId)) 
+            if (string.IsNullOrWhiteSpace(collectionId))
                 throw new ArgumentException("Коллекция пустая", nameof(collectionId));
-            if (string.IsNullOrWhiteSpace(query)) 
+            if (string.IsNullOrWhiteSpace(query))
                 throw new ArgumentException("не задан вопрос", nameof(query));
 
             var queryEmbedding = await GetEmbeddingsAsync(new[] { query.Trim() });
             if (queryEmbedding == null || queryEmbedding.Count != 1 || queryEmbedding[0] == null || queryEmbedding[0].Length == 0)
                 throw new InvalidOperationException("Ошибка при поиске эмбиндинга.");
 
-            object whereDocument = null;
+            object whereDocument = new Dictionary<string, object>();
             var clauses = new List<Dictionary<string, object>>();
-            if (!string.IsNullOrWhiteSpace(mustContain1)) 
+            if (!string.IsNullOrWhiteSpace(mustContain1))
                 clauses.Add(new() { { "$contains", mustContain1 } });
 
-            if (!string.IsNullOrWhiteSpace(mustContain2)) 
+            if (!string.IsNullOrWhiteSpace(mustContain2))
                 clauses.Add(new() { { "$contains", mustContain2 } });
 
-            if (clauses.Count == 1) 
+            if (clauses.Count == 1)
                 whereDocument = clauses[0];
-            else if (clauses.Count > 1) 
+            else if (clauses.Count > 1)
                 whereDocument = new Dictionary<string, object> { { "$and", clauses } };
 
             var payload = new Dictionary<string, object>
@@ -169,15 +211,17 @@ namespace DvSqlGenWeb.Services
                 ["n_results"] = Math.Max(3, n),
                 ["include"] = new[] { "documents", "distances", "metadatas" }
             };
-            if (where != null) 
-                payload["where"] = where;  
-            
+            if (where != null)
+                payload["where"] = where;
+
             if (whereDocument != null)
-                payload["where_document"] = whereDocument; 
+                payload["where_document"] = whereDocument;
 
             var payloadJson = System.Text.Json.JsonSerializer.Serialize(payload, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+            Console.WriteLine("=== PAYLOAD TO CHROMA ===");
             Console.WriteLine(payloadJson);
             using var content = new StringContent(payloadJson, Encoding.UTF8, "application/json");
+
 
             using var resp = await _http.PostAsync($"/api/v1/collections/{collectionId}/query", content);
             var jsonStr = await resp.Content.ReadAsStringAsync();
@@ -207,7 +251,7 @@ namespace DvSqlGenWeb.Services
             using var content = new StringContent(System.Text.Json.JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
             using var resp = await _http.PostAsync($"/api/v1/collections/{collectionId}/get", content);
             var body = await resp.Content.ReadAsStringAsync();
-            if (!resp.IsSuccessStatusCode) 
+            if (!resp.IsSuccessStatusCode)
                 throw new Exception("Ошибка: " + resp.StatusCode + "\n" + body);
             return body;
         }

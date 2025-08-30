@@ -27,6 +27,8 @@ namespace DvSqlGenWeb.Models
         public bool is_extended { get; set; }
         public bool is_new { get; set; }
         public Reference? references { get; set; }           // ссылка на др. секцию/справочник
+
+        public List<string> synonyms { get; set; } = new();
     }
 
     public class Reference

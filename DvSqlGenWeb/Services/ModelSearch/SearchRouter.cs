@@ -51,7 +51,23 @@ namespace DvSqlGenWeb.Services.ModelSearch
             return hits.OrderByDescending(h => h.MatchedPhrases.Count).ToList();
         }
 
-       
+
+        public static (List<RouterTarget> Targets, string CleanedText) DetectTargetsAndClean(string userQuery, SearchDictionary dict)
+        {
+            var targets = DetectTargets(userQuery, dict);
+            var cleaned = userQuery;
+
+            foreach (var t in targets)
+            {
+                foreach (var phrase in t.MatchedPhrases)
+                {
+                    cleaned = Regex.Replace(cleaned, Regex.Escape(phrase), "", RegexOptions.IgnoreCase);
+                }
+            }
+
+            return (targets, cleaned.Trim());
+        }
+
         public static Dictionary<string, object>? BuildChromaWhereV1(IReadOnlyCollection<RouterTarget> targets, string cardTypeField = "cardType", string sectionField = "section")
         {
             if (targets == null) 
@@ -112,6 +128,69 @@ namespace DvSqlGenWeb.Services.ModelSearch
 
             return new Dictionary<string, object> { ["$or"] = orList };
         }
+        public static List<string> SplitToPhrases(string userQuery)
+        {
+            if (string.IsNullOrWhiteSpace(userQuery))
+                return new List<string>();
+
+            return userQuery
+                .Split(new[] { ' ', ',', ';', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(s => s.Trim())
+                .Where(s => s.Length > 0)
+                .ToList();
+        }
+        public static Dictionary<string, object>? BuildChromaWhereV2(
+            IReadOnlyCollection<RouterTarget> targets,
+            string cardTypeField = "cardType",
+            string sectionField = "section",
+            string phraseField = "text")
+        {
+            if (targets == null)
+                throw new ArgumentNullException(nameof(targets));
+            if (targets.Count == 0)
+                return null;
+
+            var orList = new List<object>();
+
+            foreach (var g in targets.GroupBy(t => t.CardType, StringComparer.OrdinalIgnoreCase))
+            {
+                var andList = new List<object>
+                    {
+                        new Dictionary<string, object> { [cardTypeField] = g.Key }
+                    };
+
+                var sections = g.Select(t => t.Section)
+                                .Where(s => !string.IsNullOrWhiteSpace(s))
+                                .Distinct(StringComparer.OrdinalIgnoreCase)
+                                .ToList();
+
+                if (sections.Count == 1)
+                    andList.Add(new Dictionary<string, object> { [sectionField] = sections[0] });
+                else if (sections.Count > 1)
+                    andList.Add(new Dictionary<string, object>
+                    {
+                        [sectionField] = new Dictionary<string, object> { ["$in"] = sections }
+                    });
+
+                var phrases = g.SelectMany(t => t.MatchedPhrases).Distinct().ToList();
+                if (phrases.Count == 1)
+                {
+                    andList.Add(new Dictionary<string, object> { [phraseField] = phrases[0] });
+                }
+                else if (phrases.Count > 1)
+                {
+                    andList.Add(new Dictionary<string, object>
+                    {
+                        [phraseField] = new Dictionary<string, object> { ["$in"] = phrases }
+                    });
+                }
+
+                orList.Add(new Dictionary<string, object> { ["$and"] = andList });
+            }
+
+            return new Dictionary<string, object> { ["$or"] = orList };
+        }
+
 
 
         private static string Normalize(string s) 
