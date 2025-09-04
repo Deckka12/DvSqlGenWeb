@@ -54,14 +54,66 @@ namespace DvSqlGenWeb.Services
 
             var dict = SearchDictionary.FromJsonFile(_routerJsonPath);
 
-            var targets = SearchRouter.DetectTargets(question, dict);
+            var phrases = SearchRouter.SplitToPhrases(question);
+            var conditions = new List<Dictionary<string, object>>();
+            phrases = phrases.Where(x => x.Length > 2).ToList();
+
+            foreach (var p in phrases)
+            {
+                conditions.Add(new Dictionary<string, object>
+                {
+                    ["Field"] = p.ToLower()
+                });
+            }
+
             Dictionary<string, object>? where = null;
-            if (targets.Count > 0)
-                where = SearchRouter.BuildChromaWhereV1(targets, "cardType", "section");
+            if (conditions.Count > 0)
+            {
+                where = new Dictionary<string, object>
+                {
+                    ["$or"] = conditions
+                };
+            }
 
-            var relevant = await chroma.QueryAsync(_collectionId!, question, n: _topK, where: where);
+            Dictionary<string, object>? whereDoc = null;
+            if (phrases.Count > 0)
+            {
+                whereDoc = new Dictionary<string, object>
+                {
+                    ["$or"] = phrases.Select(p =>
+                        new Dictionary<string, object>
+                        {
+                            ["$contains"] = p.ToLower()
+                        }).ToList<object>()
+                };
+            }
 
-            var context = string.Join("\n---\n", relevant.Take(Math.Min(_topK, relevant.Count)));
+            var relevant = await chroma.QueryAsync(_collectionId!, question, n: _topK, where: where, where_doc: whereDoc);
+
+            //TODO: надо подумать, может стоит убрать синонимы для контекста, дабы зачем они модели. Тестриуем!!
+            var result = relevant.Select(r =>
+            {
+                var lines = r.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                var table = lines.FirstOrDefault(l => l.StartsWith("TABLE:", StringComparison.Ordinal));
+                var section = lines.FirstOrDefault(l => l.StartsWith("SECTION:", StringComparison.Ordinal));
+                return (lines, table, section);
+            }).Where(x => x.table is not null && x.section is not null)
+                .GroupBy(x => (x.table!, x.section!))
+                .Select(g =>
+                {
+
+                    var fields = g.SelectMany(x => x.lines.Where(l => l.StartsWith("- ", StringComparison.Ordinal)))
+                                  .Distinct();
+                    var synonyms = g.SelectMany(x => x.lines.Where(l => l.StartsWith("SYNONYMS:", StringComparison.Ordinal)))
+                                    .Distinct();
+                    return string.Join('\n',
+                        new[] { g.Key.Item1, g.Key.Item2, "FIELDS:" }
+                            .Concat(fields)
+                            .Concat(synonyms));
+                }).ToList();
+
+
+            var context = string.Join("\n---\n", result.Take(_topK));
 
             var systemPrompt = """
             Ты — генератор SQL для DocsVision.
@@ -82,6 +134,7 @@ namespace DvSqlGenWeb.Services
                 ** from ***
                 join ** as **  WITH (NOLOCK)
                     on ** = **
+            - CardTaskList.Tasks не является конечным результатом, завершаем запрос до конца до CardTask.MainInfo
             """;
 
             return await llm.ChatAsync(systemPrompt, userPrompt: question, context: context, ct: ct);
@@ -98,32 +151,16 @@ namespace DvSqlGenWeb.Services
 
             var dict = SearchDictionary.FromJsonFile(_routerJsonPath);
 
-            //var targets = SearchRouter.DetectTargets(question, dict);
-            //var (targets, cleanedText) = SearchRouter.DetectTargetsAndClean(question, dict);
-            //Dictionary<string, object>? where = null;
-            //if (targets.Count > 0)
-            //    where = SearchRouter.BuildChromaWhereV1(targets, "cardType", "section");
-
             var phrases = SearchRouter.SplitToPhrases(question);
             var conditions = new List<Dictionary<string, object>>();
             phrases = phrases.Where(x => x.Length > 2).ToList();
 
             foreach (var p in phrases)
             {
-                // Условие по самому полю
                 conditions.Add(new Dictionary<string, object>
                 {
                     ["Field"] = p.ToLower()
                 });
-
-                // TODO: научить делать поиск по массиву
-                //conditions.Add(new Dictionary<string, object>
-                //{
-                //    ["Synonyms"] = new Dictionary<string, object>
-                //    {
-                //        ["$contains"] = p.ToLower()
-                //    }
-                //});
             }
 
             Dictionary<string, object>? where = null;

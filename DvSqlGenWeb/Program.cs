@@ -15,7 +15,7 @@ namespace DvSqlGenWeb
             var cfg = builder.Configuration;
 
             string llmUrl = cfg["Llm:BaseUrl"] ?? "http://localhost:4891";
-            string llmModel = cfg["Llm:Model"] ?? "Llama 3.1 8B Instruct 128k";
+            string llmModel = cfg["Llm:Model"] ?? "gpt-oss:20b";
             string llmApiKey = cfg["Llm:ApiKey"] ?? "";
             double temperature = double.TryParse(cfg["Llm:Temperature"], out var t) ? t : 0.1;
 
@@ -87,13 +87,13 @@ namespace DvSqlGenWeb
             // health
             app.MapGet("/health", () => Results.Ok(new { ok = true }));
 
-            app.MapPost("/api/sql", async (PromptDto dto, ChromaDirect chroma, OpenAIClient llm, SqlRagService rag, CancellationToken ct
+            app.MapPost("/api/sql", async (PromptDto dto, ChromaDirect chroma, OllamaClient llm, SqlRagService rag, CancellationToken ct
              ) =>
                 {
                     if (dto is null || string.IsNullOrWhiteSpace(dto.Question))
                         return Results.BadRequest(new { error = "Question is required" });
 
-                    var sql = await rag.GenerateSqlAsync(dto.Question.Trim(),dto.Update, llm, chroma, ct);
+                    var sql = await rag.GenerateSqlAsync(dto.Question.Trim(), llm, chroma, ct);
                     if (string.IsNullOrWhiteSpace(sql))
                         return Results.UnprocessableEntity(new { error = "LLM did not produce valid SQL" });
 

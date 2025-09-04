@@ -31,7 +31,7 @@ namespace DvSqlGenWeb.Services
 
 
         public OllamaClient(string baseUrl = "http://localhost:11434",
-                            string model = "qwen2.5-coder:14b",
+                            string model = "gpt-oss:20b",
                             double temperature = 0.1,
                             TimeSpan? timeout = null)
         {
