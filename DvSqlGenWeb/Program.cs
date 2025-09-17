@@ -1,7 +1,10 @@
-﻿using System.Buffers.Text;
-using System.Threading;
+﻿using DvSqlGenWeb.Context;
 using DvSqlGenWeb.Models;     // PromptDto
 using DvSqlGenWeb.Services;   // Gpt4AllClient, ChromaDirect, SqlRagService
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Buffers.Text;
+using System.Threading;
 
 namespace DvSqlGenWeb
 {
@@ -44,6 +47,8 @@ namespace DvSqlGenWeb
                     Timeout = TimeSpan.FromMinutes(2)
                 }
             ));
+            builder.Services.AddScoped<EfEmbeddingStore>();
+
             builder.Services.AddSingleton(new OllamaClient(
                 baseUrl: "http://localhost:11434",
                 model: llmModel,
@@ -60,14 +65,29 @@ namespace DvSqlGenWeb
                     BaseAddress = new Uri(chromaUrl)
                 }
             ));
-
             builder.Services.AddSingleton(new SqlRagService(
                 schemaPath: Path.Combine(builder.Environment.ContentRootPath, schemaPath),
                 collectionName: collection,
                 topK: topK
             ));
 
+            var dataDir = Path.Combine(AppContext.BaseDirectory, "data");
+            Directory.CreateDirectory(dataDir);
+            var dbPath = Path.Combine(dataDir, "rag.db");
+
+            builder.Services.AddDbContext<RagDbContext>(options =>
+                options.UseSqlite($"Data Source={dbPath}"));
+
             var app = builder.Build();
+            app.MapGet("/test", async ([FromServices] EfEmbeddingStore store) =>
+            {
+                await store.UpsertAsync("doc1", "Пример текста",
+                    new float[] { 0.1f, 0.2f, 0.3f },
+                    new Dictionary<string, object> { ["CardType"] = "CardDocument" });
+
+                var res = await store.QueryAsync(new float[] { 0.1f, 0.2f, 0.3f });
+                return res.Select(r => new { r.Chunk.Id, r.Score });
+            });
 
             // ----- pipeline как у тебя -----
             if (!app.Environment.IsDevelopment())
@@ -75,7 +95,6 @@ namespace DvSqlGenWeb
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -87,21 +106,28 @@ namespace DvSqlGenWeb
             // health
             app.MapGet("/health", () => Results.Ok(new { ok = true }));
 
-            app.MapPost("/api/sql", async (PromptDto dto, ChromaDirect chroma, OllamaClient llm, SqlRagService rag, CancellationToken ct
-             ) =>
-                {
-                    if (dto is null || string.IsNullOrWhiteSpace(dto.Question))
-                        return Results.BadRequest(new { error = "Question is required" });
-
-                    var sql = await rag.GenerateSqlAsync(dto.Question.Trim(), llm, chroma, ct);
-                    if (string.IsNullOrWhiteSpace(sql))
-                        return Results.UnprocessableEntity(new { error = "LLM did not produce valid SQL" });
-
-                    return Results.Ok(new { sql });
-                });
-
+            app.MapPost("/api/sql", SqlHandlers.GenerateSql);
 
             app.Run();
+        }
+    }
+    public static class SqlHandlers
+    {
+        public static async Task<IResult> GenerateSql(
+            [FromBody] PromptDto dto,
+            [FromServices] SqlRagService rag,
+            [FromServices] ChromaDirect chroma,
+            [FromServices] OllamaClient llm,
+            CancellationToken ct)
+        {
+            if (dto is null || string.IsNullOrWhiteSpace(dto.Question))
+                return Results.BadRequest(new { error = "Question is required" });
+
+            var sql = await rag.GenerateSqlAsync(dto.Question.Trim(), llm, chroma, ct);
+            if (string.IsNullOrWhiteSpace(sql))
+                return Results.UnprocessableEntity(new { error = "LLM did not produce valid SQL" });
+
+            return Results.Ok(new { sql });
         }
     }
 }
